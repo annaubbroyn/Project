@@ -1,0 +1,315 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX root = thesis.tex
+% !TEX spellcheck = en-US
+%%=========================================
+\chapter{Background theory}
+
+\section{Superconductivity}
+Two fundamental properties associated to superconductivity are 1) zero electrical resistance giving rise to \textit{supercurrents}, for temperatures below some critical temperature $T_c$ and 2) complete expulsion of magnetic field below $T_c$, known as the Meissner effect \cite{Meissner33,MeissnerTrans83}. The theory behind these properties was presented by Bardeen, Cooper and Schrieffer in 1957 and is known as the BCS-theory \cite{BCS57}. 
+
+
+\subsection{The Meissner effect}\label{sec:meissner}
+Meissner and Ochsenfeld discovered in 1933 \cite{Meissner33} that applied magnetic field, $H$, below some critical limit $H_c$, would be expelled in the superconductor for temperatures below $T_c$, resulting in zero field inside the superconductor, $B=\mu_0(H + M)=0$, so that $M=-H$. The superconductor is thus a perfect diamagnet with susceptibility 
+\begin{equation}
+    \chi = \frac{dM}{dH} = -1.
+\end{equation}
+This is called the Meissner effect and is a consequence of induced screening supercurrents at the surface of the superconductor. No current can exist only on the surface of a material as this would imply a finite current in a layer of zero thickness requiring infinite density of free charge. Consequently, the screening current must exist at some finite distance, $\lambda_L$, into the superconductor and thus letting the external magnetic field penetrate to a depth $\lambda_L$. This penetration depth will depend on the density of superconducting carriers (Cooper pairs) and is a result from the London equations \cite{London71} and Ampere's law.
+\\
+\\
+The Meissner effect breaks down as the external field is increased to above the critical limit $H_c$. Depending on the material we will then get full (in type I superconductors) or partial (in type II superconductors) penetration of magnetic flux and the superconductor will go from the superconducting state into the normal or mixed state, respectively.
+
+\subsection{BCS theory} \label{sec:bcs}
+The BCS theory is based on the appearance of so called \textit{Cooper pairs} which conventionally are formed by a phonon-mediated attractive interaction between two electrons overwinning the Coulomb repulsion \cite{BCS57}. The Cooper pairs are bosonic...
+\\
+\\
+The Hamiltonian of the system will consist of two parts, describing the non-interacting and interacting electrons, respectively. A given state is defined by the momentum $\bf{k}$ and spin $\sigma$. In the second quantization formalism the annihilation- and creation operators, $\ann$ and $\cre$, will destroy and create an electron in the corresponding state, respectively. The number operator $n_{\ksig}=\cre\ann$ counts the number of electrons in the state. The non-interacting part of the Hamiltonian will simply be the energy of each state, $\epsilon_{\kbf} = \hbar^2k^2/2m$, times the number operator and summed over all states. This will thus be the first term in Hamiltonian \eqref{Ham-2-1}. The interacting part of the Hamiltonian will describe a scattering process where two electrons into the states ($\bf{k}$, $\sigma$) and ($\bf{k'}$,$\sigma'$) are scattered to the states ($\bf{k+q}$, $\sigma$) and ($\bf{k'-q}$, $\sigma'$), i.e. ($\bf{k}$, $\sigma$) and  ($\bf{k+q}$, $\sigma$) are destroyed by the annihilation operators while ($\bf{k+q}$, $\sigma$) and ($\bf{k'-q}$, $\sigma'$) are created by the creation operators. We must also include a matrix element $V_{\bf{k,k'}}$ including both the attractive phonon-mediated interaction and the repulsive Coulomb interaction, between the electrons. The second term in the Hamiltonian \eqref{Ham-2-1} describe this interaction. The total Hamiltonian including both the non-interacting and the interacting term is thus given as
+\begin{equation}
+    H = \sum_{\ksig} \epsilon_{\kbf} \cre \ann + \sum_{\bf{k,k',q},\sigma,\sigma'} V_{\bf{k,k'}}(\bf{q},\omega) c_{\bf{k+q},\sigma}^{\dagger} c_{\bf{k'-q},\sigma'}^{\dagger} \ann c_{\bf{k'},\sigma'}.
+    \label{Ham-2-1}
+\end{equation}
+We define $\varepsilon_{\kbf} \equiv \epsilon_{\kbf} - \mu$ as the energy above the Fermi surface. We have used the chemical potential, $\mu$, in the place of the Fermi energy, $\epsilon_{F}$, as these two quantities are essentially the same in all relevant cases. The attractive interaction will only be valid in a small energy range, $\omega$, above the Fermi-surface, and for electrons on opposite sides of the Fermi-surface. We may therefore let $\bf{k'}=-\bf{k}$. Due to the Pauli principle we will in most cases find the electrons in the Cooper pairs in opposite spin states, so we will also let $\sigma'=-\sigma$. By now changing the dummy indices, the Hamiltonian takes the form
+\begin{equation}
+    H-\mu N = \sum_{\ksig} \varepsilon_{\bf{k}} \cre \ann + \sum_{\bf{k,k'}} V_{\bf{k,k'}} c_{\bf{k},\uparrow}^{\dagger} c_{\bf{-k},\downarrow}^{\dagger}  c_{\bf{k'},\uparrow} c_{-\bf{k'},\downarrow},
+    \label{Ham-2-2}
+\end{equation}
+where $N$ is the number of electrons. Henceforth we will write $H$ in place of $H-\mu N$. We will use mean field approximation to simplify the Hamiltonian and assume the fluctuations around the expectation values to be small such that we can write 
+\begin{equation}
+    \anndown\annup = \left< \anndown \annup \right> + \anndown\annup - \left< \anndown \annup \right> \equiv \left< \anndown \annup \right> + \delta_{\bf{k}},
+\end{equation}
+and only keep $\delta$ to the first order. By also defining the \textit{gap parameter} as follows
+\begin{equation}
+    \Delta_{\bf{k'}} = \sum_{\bf{k}} V_{\bf{k,k'}}\left< \anndown \annup \right>,
+\label{gap}
+\end{equation}
+the Hamiltonian will simplify to
+\begin{equation}
+\begin{split}
+    H &= \sum_{\ksig} \varepsilon_{\bf{k}} \cre \ann + \sum_{\bf{k}} \left[ \Delta_{\bf{k}}^*c_{\bf{k},\uparrow} c_{\bf{-k},\downarrow} + \Delta_{\bf{k}}c_{\bf{k},\uparrow}^{\dagger} c_{\bf{-k},\downarrow}^{\dagger} - \Delta_{\bf{k}}\left<\creup \credown \right> \right]
+    \\
+    &= -\sum_{\bf{k}} \Delta_{\bf{k}}\left<\creup \credown \right> + \sum_{\bf{k}} \varepsilon_{\bf{k}} \left[\creup \annup + \credown \anndown \right] + \sum_{\bf{k}} \left[ \Delta_{\bf{k}}^*c_{\bf{k},\uparrow} c_{\bf{-k},\downarrow} + \Delta_{\bf{k}}c_{\bf{k},\uparrow}^{\dagger} c_{\bf{-k},\downarrow}^{\dagger} \right]
+    \\
+    &=
+    \sum_{\bf{k}} \left[ \varepsilon_{\kbf} - \Delta_{\bf{k}}\left<\creup \credown \right> \right] + \sum_{\bf{k}} \varepsilon_{\bf{k}} \left[\creup \annup - \anndown \credown  \right] + \sum_{\bf{k}} \left[ \Delta_{\bf{k}}^*c_{\bf{k},\uparrow} c_{\bf{-k},\downarrow} + \Delta_{\bf{k}}c_{\bf{k},\uparrow}^{\dagger} c_{\bf{-k},\downarrow}^{\dagger} \right]
+    \\
+    &= E_0 + \sum_{\bf{k}}
+    \begin{pmatrix}
+        \creup & \anndown
+    \end{pmatrix}
+    \begin{pmatrix}
+        \varepsilon_{\bf{k}} & \Delta_{\bf{k}}\\
+        \Delta_{\bf{k}}^* & -\varepsilon_{\bf{k}} 
+    \end{pmatrix}
+    \begin{pmatrix}
+        \annup \\ \credown
+    \end{pmatrix}
+    \equiv E_0 + \sum_{\kbf}\varphi_{\kbf}'^{\dagger}H_{\kbf}'\varphi_{\kbf}'
+\end{split}
+\label{Ham-2-3}
+\end{equation}
+
+where we have used the standard commutation relations for fermions \eqref{commutationrelations} and defined 
+\begin{equation*}
+    E_0 \equiv \sum_{\bf{k}} \left[ \varepsilon_{\kbf} - \Delta_{\bf{k}}\left<\creup \credown \right> \right],
+    \quad
+    H_{\kbf}' = 
+    \begin{pmatrix}
+        \varepsilon_{\bf{k}} & \Delta_{\bf{k}}\\
+        \Delta_{\bf{k}}^* & -\varepsilon_{\bf{k}} 
+    \end{pmatrix}
+    \quad \mathrm{and} \quad 
+    \varphi_{\kbf}' \equiv \begin{pmatrix} \annup \\ \credown \end{pmatrix}.
+\end{equation*}
+The Hamiltonian \eqref{Ham-2-3} can be diagonalized by inserting $U_{\kbf}U_{\kbf}^{\dagger} = I$, where $U$ is a unitary matrix:
+\begin{equation}
+U_{\kbf} =
+\begin{pmatrix}
+    u_{\kbf} & -v_{\kbf}^* \\
+    v_{\kbf} & u_{\kbf}^*
+\end{pmatrix},
+\qquad
+U_{\kbf}^{\dagger} = 
+\begin{pmatrix}
+    u_{\kbf}^* & v_{\kbf}^* \\
+    -v_{\kbf} & u_{\kbf}
+\end{pmatrix}
+\end{equation}
+and $u_{\kbf}$ and $v_{\kbf}$ satisfy the relation
+
+\begin{equation}
+\left| u_{\kbf} \right |^2 + \left| v_{\kbf} \right |^2 = 1.
+\label{unitary}
+\end{equation}
+This will be satisfied if we write $u_{\kbf}$ and $v_{\kbf}$ on the form
+\begin{equation}
+u_{\kbf} = e^{i\alpha}\cos\theta_{\kbf},
+\qquad
+v_{\kbf} = e^{i\beta}\sin\theta_{\kbf}.
+\label{uv}
+\end{equation}
+Our Hamiltonian will now be on the form 
+\begin{equation}
+H = E_0 + \sum_{\kbf}\varphi_{\kbf}^{\dagger}H_{\kbf}\varphi_{\kbf}
+\end{equation}
+with $H_{\kbf} = U_{\kbf}^{\dagger}H_{\kbf}'U_{\kbf}$ and  $\varphi_{\kbf} \equiv U_{\kbf}^{\dagger}\varphi'_{\kbf}$, i.e.
+\begin{equation}
+\varphi_{\kbf} \equiv 
+\begin{pmatrix}
+    \gannup \\ \gcredown
+\end{pmatrix}
+=
+\begin{pmatrix}
+    u_{\kbf}^* & v_{\kbf}^*\\
+    -v_{\kbf} & u_{\kbf}
+\end{pmatrix}
+\begin{pmatrix}
+    \annup \\ \credown
+\end{pmatrix}.
+\label{quasi}
+\end{equation}
+ The new fermionic operators $\gannup$ and $\gcredown$ are describing excitations of so called \textit{quasiparticles}. We need to find what values of $u_{\kbf}$ and $v_{\kbf}$ that will satisfy the relation \eqref{unitary} and diagonalize  $H_{\kbf}$:
+\begin{equation}
+\begin{split}
+    H_{\kbf} &= 
+    U_{\kbf}^{\dagger}H_{\kbf}'U_{\kbf} = 
+    \begin{pmatrix}
+        u_{\kbf}^* & v_{\kbf}^* \\
+        -v_{\kbf} & u_{\kbf}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \varepsilon_{\bf{k}} & \Delta_{\bf{k}}\\
+        \Delta_{\bf{k}}^* & -\varepsilon_{\bf{k}} 
+    \end{pmatrix}
+    \begin{pmatrix}
+        u_{\kbf} & -v_{\kbf}^* \\
+        v_{\kbf} & u^*_{\kbf}
+    \end{pmatrix}
+    \\
+    &=
+    \begin{pmatrix}
+        \varepsilon_{\kbf}\left(\left|u_{\kbf}\right|^2 - \left|v_{\kbf}\right|^2 \right) + \Delta_{\kbf}u^*_{\kbf}v_{\kbf} + \Delta_{\kbf}^*u_{\kbf}v^*_{\kbf}
+        &
+        \Delta_{\kbf}u_{\kbf}^{*2} - \Delta_{\kbf}^*v^{*2}_{\kbf}-2\varepsilon_{\kbf}u^*_{\kbf}v_{\kbf}^*
+        \\
+        \Delta_{\kbf}^*u^2_{\kbf} - \Delta_{\kbf}v_{\kbf}^2 -2\varepsilon_{\kbf}u_{\kbf}v_{\kbf}
+        &
+        -\left[\varepsilon_{\kbf}(\left|u_{\kbf}\right|^2 - \left|v_{\kbf}\right|^2) + \Delta_{\kbf}u^*_{\kbf}v_{\kbf} + \Delta_{\kbf}^*u_{\kbf}v^*_{\kbf}\right]
+    \end{pmatrix}.
+\end{split}
+\label{Hk}
+\end{equation}
+For the off-diagonal elements to be zero we must have $\Delta^*_{\kbf}u_{\kbf}^2 - \Delta_{\kbf}v^2_{\kbf} - 2\varepsilon_{\kbf}u_{\kbf}v_{\kbf}= 0$. We write $u_{\kbf}$ and $v_{\kbf}$ on the form given in equation \eqref{uv} and write $\Delta_{\kbf} = \left|\Delta_{\kbf}\right|e^{i\gamma}$. This yields
+\begin{equation*}
+\begin{split}
+    0 &= \Delta^*_{\kbf}u_{\kbf}^2 - \Delta_{\kbf}v^2_{\kbf} - 2\varepsilon_{\kbf}u_{\kbf}v_{\kbf}
+    \\
+    &= \left|\Delta_{\kbf}\right|e^{i(\alpha+\beta)}\cos^2\theta
+    \left(e^{i(\alpha-\beta-\gamma)} - e^{-i(\alpha-\beta-\gamma)}\tan^2\theta_{\kbf} - 2\frac{\varepsilon_{\kbf}}{\left|\Delta_{\kbf}\right|}\tan\theta_{\kbf}\right),
+\end{split}
+\end{equation*}
+which gives 
+\begin{equation}
+\alpha - \beta = \gamma
+\qquad \mathrm{and} \qquad
+\tan\theta_{\kbf} = -\frac{\varepsilon_{\kbf}}{\left|\Delta_{\kbf}\right|}\pm\sqrt{\frac{\varepsilon_{\kbf}^2}{\left|\Delta_{\kbf}\right|^2}+1}.
+\label{tan}
+\end{equation}
+$u_{\kbf}$ and $v_{\kbf}$ will thus be satisfied by
+\begin{equation}
+\begin{split}
+    \left|u_{\kbf}\right|^2 = \cos^2\theta = \frac{1}{2}\left(1 + \frac{\varepsilon_{\kbf}}{\sqrt{\varepsilon_{\kbf}^2 + \left|\Delta_{\kbf}\right|^2}}\right)    
+    \\
+    \left|v_{\kbf}\right|^2 = \sin^2\theta = \frac{1}{2}\left(1 - \frac{\varepsilon_{\kbf}}{\sqrt{\varepsilon_{\kbf}^2 + \left|\Delta_{\kbf}\right|^2}}\right)
+\end{split}
+\label{uv-2}
+\end{equation}
+where we have chosen the upper sign in \eqref{tan} in order to have $\left|u_{\kbf}\right| = 1$ and $\left|v_{\kbf}\right| = 0$ when $\Delta_{\kbf} = 0$ and $\varepsilon_{\kbf} > 0$, i.e. when there is no attraction between the electrons and thus in the limit of the \textit{normal} state, according to equation \eqref{gap}. We calculate the diagonal terms of $H_{\kbf}$ \eqref{Hk} and find
+\begin{equation}
+H_{\kbf} = 
+\begin{pmatrix}
+    E_{\kbf} & 0\\
+    0 & -E_{\kbf}
+\end{pmatrix}
+\label{H_diag}
+\end{equation}
+where we have defined 
+\begin{equation}
+E_{\kbf} = \sqrt{\varepsilon_{\kbf}^2 + \left| \Delta_{\kbf} \right|^2}.
+\label{Ek}
+\end{equation}
+as the quasiparticle excitation energy. It is now clear why $\Delta_{\kbf}$ is refered to as the \textit{gap-parameter} as it gives a gap in the excitation spectrum of the quasiparticles $\varphi_{\kbf}$. Morover, we get
+\begin{equation}
+    \hbar k^{\pm} = \sqrt{2m}\sqrt{\mu \pm \sqrt{E_{\kbf}^2-\left|\Delta_{\kbf}\right|^2}}.
+\label{kpm}
+\end{equation}
+We notice how we get a fourfold degeneracy of relevant states, ($k^+,k^-,-k^+,-k^-$), for each $E_{\kbf}$. From equation \eqref{uv-2} we see that the quasiparticle excitation $\gcreup$ will be electron(hole)-like for energies above(below) the Fermi surface, since we then have $u_{\kbf} \rightarrow 1$ and $v_{\kbf} \rightarrow 0$ ($v_{\kbf} \rightarrow 1$ and $u_{\kbf} \rightarrow 0$) as $\Delta \rightarrow 0$ and $\creup$ creates an electron while $\anndown$ destroys an electron, leaving a hole. Moreover, from equation \eqref{kpm} we see that $\pm k^+$ ($\pm k^-$) corresponds to energy above(below) the Fermi surface and thus $\pm k^+$ ($\pm k^-$) is electron(hole)-like. 
+\\
+\\
+In the description above we assumed the Hamiltonian to be position-invariant so that the wave functions could be considered as simple plane waves, $\sim \exp(i\kbf\cdot\rbf) $. We simply replaced the Hamiltonian for a single particle system, 
+\begin{equation}
+    h(\rbf) = -\frac{\hbar^2 \nabla^2}{2m} -\mu(\rbf) + V(\rbf),
+\label{Ham-2-4}
+\end{equation}
+with $\varepsilon_{\kbf} = \hbar^2k^2/2m - \mu$. For systems where we can not do this simplification we introduce field operators:
+\begin{equation}
+    \psi(\rbf,t) \equiv \sum_{\kbf}U(\rbf,t)\varphi_{\kbf}, \qquad \psi^{\dagger}(\rbf,t) \equiv \sum_{\kbf}\varphi_{\kbf}^{\dagger}U^{\dagger}(\rbf,t) 
+\end{equation}
+and rewrite the Hamiltonian in equation \eqref{Ham-2-3} as
+\begin{equation}
+    H = E_0 + \int d^3r \ \psi^{\dagger}(\rbf,t)
+    \begin{pmatrix}
+        h(\rbf) & \Delta(\rbf) \\
+        \Delta^*(\rbf) & -h(\rbf)
+    \end{pmatrix}
+    \psi(\rbf,t)
+    \equiv E_0 + \int d^3r \ \psi^{\dagger}(\rbf,t) H(\rbf) \psi(\rbf,t).
+\end{equation}
+Again the Hamiltonian may be diagonalized by setting $U^{\dagger}(\rbf,t)H(\rbf)U(\rbf,t) = H_{\kbf}$, or equally $H(\rbf)U(\rbf,t) = U(\rbf,t)H_{\kbf}$, where $H_{\kbf}$ is on the form given in equation \eqref{H_diag}. Note that $E_{\kbf}$ is in general as defined for plane waves in equation \eqref{Ek}. %and $E_{\kbf}$ is solution to the eigenvalue equation $i\hbar \frac{\partial \psi(\rbf,t)}{\partial t} = E_{\kbf} \psi(\rbf,t)$. 
+By separating these equations for each eigenvalue in $H_{\kbf}$ we get the \textit{Bogoliubov de Gennes equations} (BdG equations) \cite{BdG}:
+\begin{equation}
+\begin{split}
+    \begin{pmatrix}
+        h(\rbf) & \Delta(\rbf) \\
+        \Delta^*(\rbf) & -h(\rbf)
+    \end{pmatrix}
+    \begin{pmatrix}
+        u(\rbf,t) \\ v(\rbf,t)
+    \end{pmatrix}
+    &=E_{\kbf}
+    \begin{pmatrix}
+        u(\rbf,t) \\ v(\rbf,t)
+    \end{pmatrix},
+    \\
+    \begin{pmatrix}
+        -h(\rbf) & -\Delta^*(\rbf) \\
+        -\Delta(\rbf) & h(\rbf)
+    \end{pmatrix}
+    \begin{pmatrix}
+        -v(\rbf,t) \\ u(\rbf,t)
+    \end{pmatrix}
+    &=E_{\kbf}
+    \begin{pmatrix}
+        -v(\rbf,t) \\ u(\rbf,t)
+    \end{pmatrix}.
+\end{split}
+\label{BdG-1}
+\end{equation}
+From equation \eqref{quasi} we have $\gcreup = u(\rbf,t)\creup + v(\rbf,t)\anndown$ and $\gcredown = u(\rbf,t)\credown - v(\rbf,t)\annup$. By letting $\big( u_{\sigma}(\rbf,t) \ \ v_{\sigma}(\rbf,t) \big)^{T}$ be the position space representation of the quasiparticle excitation $\gcre$ it is natural to define $u_{\uparrow}(\rbf,t) \equiv u(\rbf,t)$, $v_{\uparrow}(\rbf,t) \equiv v(\rbf,t)$, $u_{\downarrow}(\rbf,t) \equiv u(\rbf,t)$ and $v_{\downarrow}(\rbf,t) \equiv -v(\rbf,t)$. We define the $2\times 2$-matrices $\hat{H}(\rbf) \equiv \hat{\sigma}_0 h(\rbf)$ and $\hat{\Delta}(\rbf) \equiv i \hat{\sigma}_2\Delta(\rbf)$ where $\hat{\sigma}_0$ is the identity matrix and $\hat{\sigma}_i$ with ($i = 1,2,3$) are the Pauli matrices, see equation \eqref{pauli} in the appendix. Moreover, we define $\vec{u}(\rbf,t) \equiv \big(u_{\uparrow}(\rbf,t) \ \ u_{\downarrow}(\rbf,t)\big)^T$ and $\vec{v}(\rbf,t) \equiv \big(v_{\uparrow}(\rbf,t) \ \ v_{\downarrow}(\rbf,t)\big)^T$. The BdG-equations \eqref{BdG-1} can then be written more compact:
+\begin{equation}
+    \begin{pmatrix}
+        \hat{H}(\rbf) & \hat{\Delta}(\rbf) \\
+        \hat{\Delta}^{\dagger}(\rbf) & -\hat{H}(\rbf)
+    \end{pmatrix}
+    \begin{pmatrix}
+        \vec{u}(\rbf,t) \\ \vec{v}(\rbf,t)
+    \end{pmatrix}
+    =E_{\kbf}
+    \begin{pmatrix}
+        \vec{u}(\rbf,t) \\ \vec{v}(\rbf,t)
+    \end{pmatrix}.
+\label{BdG-2}
+\end{equation}
+\\
+\\
+
+\section{Josephson effect}
+Josephson effect describes two important phenomena of supercurrents in a \textit{Josephson junction}. A Josephson junction is a device consisting of two superconductors that is brought into contact via a \textit{weak link}, in which the \textit{critical current} is much lower. The critical current is the maximum supercurrent that can exist in the superconductor and is related to the density of Cooper pairs. 
+Firstly Josephson predicted \cite{josephson62} that supercurrents would flow through the Josephson junction even without any applied voltage. Secondly if the junction was driven by an external current exceeding the critical current, electromagnetic waves would be radiated.
+\\
+\\
+There are several ways to construct a weak link, however we will in this project only consider the \textit{SNS-junction}, i.e. a junction consisting of two superconductors, separated by a normal metal.
+`\\
+\\
+SKRIVE UTLEDNING
+men skal jeg bruke free energy, eller utledningen i sudbø?
+
+\section{Scattering theory}
+
+
+\section{Andreev reflection}
+When an electron with momentum, $\mathbf{q}^+$, and spin, $\sigma$, in the normal metal is propagating towards the interface between the normal metal and the superconductor, it will be scattered with certain probabilities of transmission and reflection. There are two possible ways the electron could be transmitted and reflected. The electron may be transmitted into the superconductor as an electron-like quasiparticle such that the energy of the transmitted quasiparticle is on the \textit{same} side of the Fermi surface, i.e. with momentum $\kbf^+$ and spin $\sigma$, or as a hole-like quasiparticle by crossing the Fermi surface, i.e. with momentum $-\kbf^-$ and spin $\sigma$. The electron may be reflected, either in the normal way, i.e. as an electron with opposite momentum, $-\mathbf{q}^+$, and the same spin, $\sigma$, or by \textit{Andreev reflection} \cite{andreev64}. In Andreev reflection the incoming electron goes into the superconductor and form a Cooper pair with an electron of opposite spin, leaving a reflected hole with momentum $\mathbf{q}^-$ and spin $-\sigma$. We ignore the spin degeneracy and express the wave vectors as $\psi(\rbf) = \big( u_{\kbf}(\rbf) \ \ v_{\kbf}(\rbf)\big)^T$. In the simplest case we consider plane waves, i.e. energies, $E_{\kbf}$, as given in equation \eqref{Ek} with corresponding wave numbers, $\pm k^+$ and $\pm k^-$, and wave vectors of the form \cite{BTK82}
+\begin{equation}
+    \psi_{\pm k^+}(\rbf) =
+    \begin{pmatrix}
+        u_0 \\ v_0
+    \end{pmatrix}
+    e^{\pm i\kbf^+\rbf}
+    \quad \mathrm{and} \quad
+        \psi_{\pm k^-}(\rbf) =
+    \begin{pmatrix}
+        v_0 \\ u_0
+    \end{pmatrix}
+    e^{\pm i\kbf^-\rbf}.
+\end{equation}
+The incoming, reflected and transmitted wave vectors will in this notation take the form
+\begin{equation}
+\begin{split}
+    \psi_i(\rbf)&=\begin{pmatrix}1 \\ 0\end{pmatrix}e^{i\qbf^+\rbf}\\
+    \psi_r(\rbf)&=a\begin{pmatrix}1 \\ 0\end{pmatrix}e^{-i\qbf^+\rbf}
+    + b\begin{pmatrix}0 \\ 1\end{pmatrix}e^{i\qbf^-\rbf}\\
+    \psi_t(\rbf)&=c\begin{pmatrix}u_0\\v_0\end{pmatrix}e^{i\kbf^+\rbf} + d \begin{pmatrix}v_0\\u_0\end{pmatrix}e^{-i\kbf^-\rbf},
+\end{split}
+\end{equation}
+were $a, \ b, \ c$, and $d$ represent the probabilities of normal reflection, Andreev reflection, electron-like transmission and hole-like transmission with crossing of the Fermi surface, respectively. We notice how an electron(hole) with momentum $+\kbf$ is moving in positive(negative) direction, while momentum $-\kbf$ gives negative(positive) direction.
+\\
+\\
+In equation \eqref{Ek} we found that only energies above the energy gap, $\left|\Delta_{\kbf}\right|$, are allowed for the quasiparticles. Consequently, when $E_{\kbf}<\left|\Delta_{\kbf}\right|$ the amplitudes $c$ and $d$ will be zero and only reflection (either normal or Andreev reflection) is allowed. States with such energies in SNS-junctions would thus be trapped in the normal metal and is referred to as Andreev Bound States (ABS).
