@@ -7,9 +7,9 @@ We consider a one-dimensional SNS-junction parallel to the $x$-axis, with $x=0$ 
     \Delta(x) = \Delta_0\left( e^{i\phi_L}\Theta(-x) + e^{i\phi_R}\Theta(x-L)\right),
 \end{equation}
 where $\Theta(x)$ is the Heaviside step function. 
-The Hamiltonian of the system will be on the form given in equation \eqref{Ham-2-4}. We allow for different chemical potential, $\mu_S$ and $\mu_N$, and different effective mass, $m_S$ and $m_N$, in the superconductors and the normal metal, respectively. Moreover, we let $V(x)$ be a delta-potential barrier at the interfaces, i.e. $V(x) = V_0 \left( \delta(x) + \delta(x-L) \right)$. The overall Hamiltonian is then
+The Hamiltonian of the system will be on the form given in equation \eqref{Ham-2-4}. We allow for different chemical potential, $\mu_S$ and $\mu_N$, and different effective mass, $m_S$ and $m_N$, in the superconductors and the normal metal, respectively. Moreover, we let $V(x)$ be a delta-potential barrier at the interfaces and allow for different strength, i.e. $V(x) = V_L\delta(x) + V_R\delta(x-L)$. The overall Hamiltonian is then
 \begin{equation}
-    h(x) = h_S(x)\big(\Theta(-x) + \Theta(x-L) \big) + h_N(x)\Theta(x)\Theta(L-x) + V_0\big( \delta(x) + \delta(x-L) \big)
+    h(x) = h_S(x)\big(\Theta(-x) + \Theta(x-L) \big) + h_N(x)\Theta(x)\Theta(L-x) + V_L\delta(x) + V_R\delta(x-L)
 \end{equation}
 where $h_S(x) = -\frac{\hbar^2}{2m_S}\frac{d^2}{dx^2}-\mu_S$ and $h_N(x) = -\frac{\hbar^2}{2m_N}\frac{d^2}{dx^2}-\mu_N$. The Hamiltonian, $h(x)$, gap parameter, $\Delta(x)$ and wave function, $\Psi(x)$, must satisfy the BdG-equations \eqref{BdG-2}.
 \\
@@ -39,8 +39,8 @@ Since we have a delta potential at the interfaces we will not have conservation 
     \Psi_{L}(x)dx
     +
     \begin{pmatrix}
-    V_0\hat{\sigma}_0 & 0\\
-    0 & -V_0\hat{\sigma}_0
+    V_L\hat{\sigma}_0 & 0\\
+    0 & -V_L\hat{\sigma}_0
     \end{pmatrix}
     \Psi(0)
     \\
@@ -56,7 +56,7 @@ Since we have a delta potential at the interfaces we will not have conservation 
     0 & -\hat{\sigma}_0
     \end{pmatrix}
     \left(
-    V_0\Psi(0)
+    V_L\Psi(0)
     -\frac{\hbar^2}{2}
     \lim_{\epsilon \rightarrow 0}
     \left( \frac{1}{m_S}\int_{-\epsilon}^{0^-} 
@@ -70,7 +70,7 @@ Since we have a delta potential at the interfaces we will not have conservation 
     0 & -\hat{\sigma}_0
     \end{pmatrix}
     \left(
-    V_0\Psi(0) +
+    V_L\Psi(0) +
     \frac{\hbar^2}{2m_S}
     \Psi'_L(0)
     -  \frac{\hbar^2}{2m_N}
@@ -80,11 +80,11 @@ Since we have a delta potential at the interfaces we will not have conservation 
 \end{equation*}
 and the boundary condition at the $x=0$ interface for the derivatives is thus
 \begin{equation}
-    \frac{\hbar^2}{2m_N} \Psi'_N(0) - \frac{\hbar^2}{2m_S} \Psi'_L(0) = V_0\Psi(0).
+    \frac{\hbar^2}{2m_N} \Psi'_N(0) - \frac{\hbar^2}{2m_S} \Psi'_L(0) = V_L\Psi(0).
 \end{equation}
 Similarly, we get
 \begin{equation}
-    \frac{\hbar^2}{2m_S} \Psi'_R(L) - \frac{\hbar^2}{2m_N} \Psi'_N(L) = V_0\Psi(L)
+    \frac{\hbar^2}{2m_S} \Psi'_R(L) - \frac{\hbar^2}{2m_N} \Psi'_N(L) = V_R\Psi(L)
 \end{equation}
 as boundary condition at the $x=L$ interface.
 \\
