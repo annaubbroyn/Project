@@ -223,8 +223,7 @@ and rewrite the Hamiltonian in equation \eqref{Ham-2-3} as
     \psi(\rbf,t)
     \equiv E_0 + \int d^3r \ \psi^{\dagger}(\rbf,t) H(\rbf) \psi(\rbf,t).
 \end{equation}
-Again the Hamiltonian may be diagonalized by setting $U^{\dagger}(\rbf,t)H(\rbf)U(\rbf,t) = H_{\kbf}$, or equally $H(\rbf)U(\rbf,t) = U(\rbf,t)H_{\kbf}$, where $H_{\kbf}$ is on the form given in equation \eqref{H_diag}. Note that $E_{\kbf}$ is in general as defined for plane waves in equation \eqref{Ek}. %and $E_{\kbf}$ is solution to the eigenvalue equation $i\hbar \frac{\partial \psi(\rbf,t)}{\partial t} = E_{\kbf} \psi(\rbf,t)$. 
-By separating these equations for each eigenvalue in $H_{\kbf}$ we get the \textit{Bogoliubov de Gennes equations} (BdG equations) \cite{BdG}:
+Again the Hamiltonian may be diagonalized by setting $U^{\dagger}(\rbf,t)H(\rbf)U(\rbf,t) = H_{\kbf}$, or equally $H(\rbf)U(\rbf,t) = U(\rbf,t)H_{\kbf}$, where $H_{\kbf}$ is on the form given in equation \eqref{H_diag}. Note that in general the elements in $H_{\kbf}$ are \textit{not} as defined in \eqref{Ek}, and we write $\lambda_{\kbf}$ instead of $E_{\kbf}$ to avoid confusion. By separating these equations for each eigenvalue in $H_{\kbf}$ we get the \textit{Bogoliubov de Gennes equations} (BdG equations) \cite{BdG}:
 \begin{equation}
 \begin{split}
     \begin{pmatrix}
@@ -234,7 +233,7 @@ By separating these equations for each eigenvalue in $H_{\kbf}$ we get the \text
     \begin{pmatrix}
         u(\rbf,t) \\ v(\rbf,t)
     \end{pmatrix}
-    &=E_{\kbf}
+    &=\lambda_{\kbf}
     \begin{pmatrix}
         u(\rbf,t) \\ v(\rbf,t)
     \end{pmatrix},
@@ -246,14 +245,38 @@ By separating these equations for each eigenvalue in $H_{\kbf}$ we get the \text
     \begin{pmatrix}
         -v(\rbf,t) \\ u(\rbf,t)
     \end{pmatrix}
-    &=E_{\kbf}
+    &=\lambda_{\kbf}
     \begin{pmatrix}
         -v(\rbf,t) \\ u(\rbf,t)
     \end{pmatrix}.
 \end{split}
 \label{BdG-1}
 \end{equation}
-From equation \eqref{quasi} we have $\gcreup = u(\rbf,t)\creup + v(\rbf,t)\anndown$ and $\gcredown = u(\rbf,t)\credown - v(\rbf,t)\annup$. By letting $\big( u_{\sigma}(\rbf,t) \ \ v_{\sigma}(\rbf,t) \big)^{T}$ be the position space representation of the quasiparticle excitation $\gcre$ it is natural to define $u_{\uparrow}(\rbf,t) \equiv u(\rbf,t)$, $v_{\uparrow}(\rbf,t) \equiv v(\rbf,t)$, $u_{\downarrow}(\rbf,t) \equiv u(\rbf,t)$ and $v_{\downarrow}(\rbf,t) \equiv -v(\rbf,t)$. We define the $2\times 2$-matrices $\hat{H}(\rbf) \equiv \hat{\sigma}_0 h(\rbf)$ and $\hat{\Delta}(\rbf) \equiv i \hat{\sigma}_2\Delta(\rbf)$ where $\hat{\sigma}_0$ is the identity matrix and $\hat{\sigma}_i$ with ($i = 1,2,3$) are the Pauli matrices, see equation \eqref{pauli} in the appendix. Moreover, we define $\vec{u}(\rbf,t) \equiv \big(u_{\uparrow}(\rbf,t) \ \ u_{\downarrow}(\rbf,t)\big)^T$ and $\vec{v}(\rbf,t) \equiv \big(v_{\uparrow}(\rbf,t) \ \ v_{\downarrow}(\rbf,t)\big)^T$. The BdG-equations \eqref{BdG-1} can then be written more compact:
+From equation \eqref{quasi} we have $\gcreup = u(\rbf,t)\creup + v(\rbf,t)\anndown$. By writing $\gcre = u_{\sigma}(\rbf,t)\cre + v_{-\sigma}(\rbf,t)c_{-\kbf,-\sigma}$ and $\gann = u_{-\sigma}(\rbf,t)c_{-\kbf,-\sigma}^{\dagger} + v_{\sigma}(\rbf,t)\ann$, we can represent $\gcre$ by the vector $\Psi_{e,\sigma}$ and $\gann$ by $\Psi_{h,\sigma}$ where $\Psi$ is a vector of the form $\big(u_{\uparrow}, u_{\downarrow}, v_{\uparrow}, v_{\downarrow}\big)^T$. We get:
+\begin{equation}
+\begin{aligned}
+&\gcreup \rightarrow \Psi_{e,\uparrow} =
+\begin{pmatrix}
+    u(\rbf,t) \\ 0 \\ 0 \\ v(\rbf,t)    
+\end{pmatrix},
+\qquad
+&&\gcredown \rightarrow \Psi_{e,\downarrow}=
+\begin{pmatrix}
+    0 \\ u(\rbf,t) \\ -v(\rbf,t)\\0
+\end{pmatrix},\\
+&\gannup \rightarrow \Psi_{h,\uparrow}=
+\begin{pmatrix}
+    0 \\ v^*(\rbf,t) \\u^*(\rbf,t)\\0  
+\end{pmatrix},
+\qquad
+&&\ganndown \rightarrow \Psi_{h,\downarrow}=
+\begin{pmatrix}
+    -v^*(\rbf,t) \\ 0 \\ 0 \\ u^*(\rbf,t)    
+\end{pmatrix}.
+\label{quasi-uv-rep}
+\end{aligned}
+\end{equation}
+We define the $2\times 2$-matrices $\hat{H}(\rbf) \equiv \hat{\sigma}_0 h(\rbf)$ and $\hat{\Delta}(\rbf) \equiv i \hat{\sigma}_2\Delta(\rbf)$ where $\hat{\sigma}_0$ is the identity matrix and $\hat{\sigma}_i$ with ($i = 1,2,3$) are the Pauli matrices, see equation \eqref{pauli} in the appendix. Moreover, we define $\vec{u}(\rbf,t) \equiv \big(u_{\uparrow}(\rbf,t) \ \ u_{\downarrow}(\rbf,t)\big)^T$ and $\vec{v}(\rbf,t) \equiv \big(v_{\uparrow}(\rbf,t) \ \ v_{\downarrow}(\rbf,t)\big)^T$. The BdG-equations \eqref{BdG-1} can then be written more compact:
 \begin{equation}
     \begin{pmatrix}
         \hat{H}(\rbf) & \hat{\Delta}(\rbf) \\
@@ -262,7 +285,7 @@ From equation \eqref{quasi} we have $\gcreup = u(\rbf,t)\creup + v(\rbf,t)\anndo
     \begin{pmatrix}
         \vec{u}(\rbf,t) \\ \vec{v}(\rbf,t)
     \end{pmatrix}
-    =E_{\kbf}
+    =\lambda_{\kbf}
     \begin{pmatrix}
         \vec{u}(\rbf,t) \\ \vec{v}(\rbf,t)
     \end{pmatrix}.

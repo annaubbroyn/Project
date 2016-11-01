@@ -24,7 +24,7 @@ Charge conservation yields the boundary condition
 Since we have a delta potential at the interfaces we will not have conservation of the derivative of the wave vectors and integrate the BdG-equations \eqref{BdG-2} in order to find the boundary conditions for the derivatives:
 \begin{equation*}
 \begin{split}
-    0 &= \lim_{\epsilon \rightarrow 0} \int_{-\epsilon}^{\epsilon} E\Psi(x) dx = \lim_{\epsilon \rightarrow 0} \int_{-\epsilon}^{\epsilon}
+    0 &= \lim_{\epsilon \rightarrow 0} \int_{-\epsilon}^{\epsilon} \lambda\Psi(x) dx = \lim_{\epsilon \rightarrow 0} \int_{-\epsilon}^{\epsilon}
     \begin{pmatrix}
     \hat{H}(x) & \hat{\Delta}(x) \\
     \hat{\Delta}^{\dagger}(x) & -\hat{H}(x)
@@ -101,21 +101,21 @@ and
 \begin{equation}
     h_{S/N}(x)\Psi_{k,S/N}(x) = \left(\frac{\hbar^2k^2}{2m_{S/N}}-\mu_{S/N}\right)\Psi_{k,S/N}(x) \equiv \varepsilon_{k,S/N} \Psi_{k,S/N}(x).
 \end{equation}
-We will first consider the superconducting region.We find the eigenvalues, $E_k$ of an equation of the form $A\Psi_k(x) = E_k\Psi_k(x)$, for a matrix $A$ by setting the determinant of the matrix $(A-E_kI)$ to zero. For the eigenvalue problem in the BdG-equations \eqref{BdG-2} we must for the superconducting region calculate
+We will first consider the superconducting region.We find the eigenvalues, $\lambda_k$ of an equation of the form $A\Psi_k(x) = \lambda_k\Psi_k(x)$, for a matrix $A$ by setting the determinant of the matrix $(A-\lambda_kI)$ to zero. For the eigenvalue problem in the BdG-equations \eqref{BdG-2} we must for the superconducting region calculate
 \begin{equation}
 \begin{split}
     0 &= 
     \det\begin{pmatrix}
-        \left(\varepsilon_{k,S} - E_{k,S}\right)\hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
-        -i\Delta^*\hat{\sigma}_2 & \left(-\varepsilon_{k,S} - E_{k,S}\right)\hat{\sigma}_0
+        \left(\varepsilon_{k,S} - \lambda_{k,S}\right)\hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
+        -i\Delta^*\hat{\sigma}_2 & \left(-\varepsilon_{k,S} - \lambda_{k,S}\right)\hat{\sigma}_0
     \end{pmatrix}
     \\ &= 
-    \det\begin{pmatrix}(\varepsilon_{k,S} -E_{k,S})\hat{\sigma}_0\end{pmatrix}
+    \det\begin{pmatrix}(\varepsilon_{k,S} -\lambda_{k,S})\hat{\sigma}_0\end{pmatrix}
     \det\begin{pmatrix}
-    -(\varepsilon_{k,S} + E_{k,S})\hat{\sigma}_0 + i\Delta^*\hat{\sigma}_2\frac{1}{\varepsilon_{k,S}-E_{k,S}}i\Delta\hat{\sigma}_2
+    -(\varepsilon_{k,S} + \lambda_{k,S})\hat{\sigma}_0 + i\Delta^*\hat{\sigma}_2\frac{1}{\varepsilon_{k,S}-\lambda_{k,S}}i\Delta\hat{\sigma}_2
     \end{pmatrix}
     \\&=
-    \left(\varepsilon_{k,S}-E_{k,S}\right)^2\left(\varepsilon_{k,S} + E_{k,S} + \frac{\Delta_0^2}{\varepsilon_{k,S} - E_{k,S}}\right)^2,
+    \left(\varepsilon_{k,S}-\lambda_{k,S}\right)^2\left(\varepsilon_{k,S} + \lambda_{k,S} + \frac{\Delta_0^2}{\varepsilon_{k,S} - \lambda_{k,S}}\right)^2,
 \end{split}
 \label{det}
 \end{equation}
@@ -126,11 +126,11 @@ A & B \\ C & D
 \end{pmatrix}
 = \det\big(A\big)\det\big(D-CA^{-1}B\big).
 \end{equation}
-As $E_{k,S} = \varepsilon_{k,S}$ would give zero in the denominator, the only solution to the above equation \eqref{det} is
+As $\lambda_{k,S} = \varepsilon_{k,S}$ would give zero in the denominator, the only solution to the above equation \eqref{det} is
 \begin{equation}
-E_{k,S}^2 = \varepsilon_{k,S}^2 + \Delta_0^2,
+\lambda_{k,S} = \pm\sqrt{\varepsilon_{k,S}^2 + \Delta_0^2} \equiv \pm E_{k,S},
 \end{equation}
-whch is of the same form as equation \eqref{Ek}. And has the fourfolded degenery of relevant states:
+with the four-folded degeneracy of relevant states:
 \begin{equation}
 k^{\pm} = k_S \sqrt{1 \pm \frac{\sqrt{E_{k,S}^2 - \Delta_0^2}}{\mu_S}}
 \end{equation}
@@ -140,8 +140,8 @@ with $k_S = \sqrt{2m\mu_S}/\hbar$ as the Fermi wave vector in the superconductor
 We find the wave functions corresponding to the eigenvalue $+E_{k,S}$, by reducing the matrix
 \begin{equation}
 \begin{pmatrix}
-(\varepsilon_{k,S} - E_{k,S}) \hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
--i\Delta^*\hat{\sigma}_2 & -(\varepsilon_{k,S} + E_{k,S})\hat{\sigma_0}  
+\big(\varepsilon_{k,S} - E_{k,S}\big) \hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
+-i\Delta^*\hat{\sigma}_2 & -\big(\varepsilon_{k,S} + E_{k,S}\big)\hat{\sigma_0}  
 \end{pmatrix}
 \sim
 \begin{pmatrix}
@@ -151,15 +151,21 @@ We find the wave functions corresponding to the eigenvalue $+E_{k,S}$, by reduci
 \end{equation}
 which give the solutions
 \begin{equation}
-    \vec{u}_k = u_0e^{i\alpha}\hat{\sigma}_0
-    \quad \mathrm{and} \quad
-    \vec{v}_k = -iv_0e^{i\beta}\hat{\sigma}_2
+    \Psi^{\pm}_{e,\uparrow}(x) = 
+    \begin{pmatrix}
+        u_0e^{i\alpha} \\ 0 \\ 0 \\ v_0e^{i\beta}
+    \end{pmatrix}e^{\pm ik^+x}
+    \quad \mathrm{and} \quad 
+    \Psi^{\pm}_{e,\downarrow}(x) = 
+    \begin{pmatrix}
+        0 \\ u_0e^{i\alpha} \\ -v_0e^{i\beta}\\0
+    \end{pmatrix}e^{\pm ik^+x}.
 \end{equation}
 Similarly, the wave functions corresponding to the eigenvalue $-E_{k,S}$ give
 \begin{equation}
 \begin{pmatrix}
-(\varepsilon_{k,S} + E_{k,S}) \hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
--i\Delta^*\hat{\sigma}_2 & -(\varepsilon_{k,S} - E_{k,S})\hat{\sigma_0}  
+\big(\varepsilon_{k,S} + E_{k,S}\big) \hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
+-i\Delta^*\hat{\sigma}_2 & -\big(\varepsilon_{k,S} - E_{k,S}\big)\hat{\sigma_0}  
 \end{pmatrix}
 \sim
 \begin{pmatrix}
@@ -169,47 +175,64 @@ Similarly, the wave functions corresponding to the eigenvalue $-E_{k,S}$ give
 \end{equation}
 which give the solutions
 \begin{equation}
-    \vec{u}_k = -iv_0e^{-i\beta}\hat{\sigma}_2
-    \quad \mathrm{and} \quad \vec{v}_k = u_0e^{-i\alpha}\hat{\sigma}_0.
+    \Psi^{\pm}_{h,\uparrow}(x) = 
+    \begin{pmatrix}
+        0 \\ v_0e^{-i\beta} \\ u_0e^{-i\alpha}\\0
+    \end{pmatrix}e^{\pm ik^-x}
+    \quad \mathrm{and} \quad 
+    \Psi^{\pm}_{h,\downarrow}(x) = 
+    \begin{pmatrix}
+        -v_0e^{-i\beta} \\ 0 \\ 0 \\ u_0e^{-i\alpha}
+    \end{pmatrix}e^{\pm ik^-x}.
 \end{equation}
-where we have used the relation from equation \eqref{uv-2}. The wave functions corresponding to the eigenvalues $+E_{k,S}$ and $-E_{k,S}$ are thus
+where we have used the relation from equation \eqref{uv-2}. We see that this agrees with the quasiparticle-representation in equation \eqref{quasi-uv-rep}. We have here, as in equation \eqref{uv-2} defined $u_0$ and $v_0$ as 
 \begin{equation}
-\Psi_{\pm   k^{+}}(x) = 
-\begin{pmatrix}
-u_0e^{i\alpha}\hat{\sigma}_0 \\
--iv_0e^{i\beta}\hat{\sigma}_2
-\end{pmatrix}e^{\pm ik^{+}x},
-\quad \mathrm{and} \quad
-\Psi_{\pm k^{-}}(x) = 
-\begin{pmatrix}
--iv_0e^{-i\beta}\hat{\sigma}_2 \\
-u_0e^{-i\alpha}\hat{\sigma}_0
-\end{pmatrix}e^{\pm ik^{-}x},
+\begin{split}
+    u_0 &= \sqrt{\frac{1}{2}\left(1+\frac{\left(E_{k,S}^2 - \Delta_0^2\right)^{1/2}}{E_{k,S}}\right)},\\
+    v_0 &= \sqrt{\frac{1}{2}\left(1-\frac{\left(E_{k,S}^2 - \Delta_0^2\right)^{1/2}}{E_{k,S}}\right)}
+\end{split}
 \end{equation}
-respectively.
-\\
-\\
-In the normal region the gap parameter, $\Delta(x)$, is zero, and so the BdG-equations \eqref{BdG-2} takes the form
+We introduce $\eta$ defined as 
 \begin{equation}
-\begin{pmatrix}
-\varepsilon_{k,N}\hat{\sigma}_0 & 0\\
-0& -\varepsilon_{k,N}\hat{\sigma}_0
-\end{pmatrix}\Psi_k(x)
-= E_{k,N}\Psi_k(x)
+    \eta = 
+    \begin{cases}
+        \mathrm{arccosh}\frac{E}{\Delta_0}, & \quad E>\Delta_0 \\
+        i\arccos\frac{E}{\Delta_0}, & \quad E<\Delta_0
+    \end{cases}
 \end{equation}
-which give the eigenvalues $E_{k,N} = \pm \varepsilon_{k,N}$ and corresponding eigenvectors
+such that $u_0$ and $v_0$ can be written as
 \begin{equation}
-\Psi_{\pm k^+}(x) =
-\begin{pmatrix}
-e^{i\alpha}\hat{\sigma}_0 \\ 0
-\end{pmatrix}
-\quad \mathrm{and} \quad
-\Psi_{\pm k^-}(x) = 
-\begin{pmatrix}
-0 \\ e^{-i\alpha}\hat{\sigma}_0
-\end{pmatrix}.
+\begin{split}
+    u_0 &= \frac{e^{\eta/2}}{\sqrt{2\cosh\eta}}\\
+    v_0 &= \frac{e^{-\eta/2}}{\sqrt{2\cosh\eta}}.
+\end{split}
 \end{equation}
-We can right down the total wavefunction for each region; the left superconductor (L), the right superconductor (R) and the normal regian (N):
+In the normal region the gap parameter, $\Delta(x)$, is zero, and so $u_0 = 1$ and $v_0 = 0$ and the eigenvalues are $\lambda_{k,N} = \pm \varepsilon_{k,N}$
+with corresponding eigenvectors
+\begin{equation}
+\begin{split}
+    \Psi^{\pm}_{e,\uparrow}(x) &= 
+    \begin{pmatrix}
+        e^{i\alpha_N} \\ 0 \\ 0 \\ 0
+    \end{pmatrix}e^{\pm ik^+x},
+    \quad
+    \Psi^{\pm}_{e,\downarrow}(x) = 
+    \begin{pmatrix}
+        0 \\ e^{i\alpha_N} \\ 0 \\0
+    \end{pmatrix}e^{\pm ik^+x},
+    \\
+    \Psi^{\pm}_{h,\uparrow}(x) &= 
+    \begin{pmatrix}
+        0 \\ 0 \\ e^{-i\alpha_N}\\0
+    \end{pmatrix}e^{\pm ik^-x},
+    \quad
+    \Psi^{\pm}_{h,\downarrow}(x) = 
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ e^{-i\alpha_N}
+    \end{pmatrix}e^{\pm ik^-x}.
+\end{split}
+\end{equation}
+We can write down the total wavefunction for each region; the left superconductor (L), the right superconductor (R) and the normal metal (N):
 \begin{equation}
 \begin{split}
 \Psi_L(x) &= 
