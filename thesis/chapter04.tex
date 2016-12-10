@@ -1,1 +1,522 @@
-\chapter{Andreev Bound States in SNS-junction with uniform external field}
+\chapter{Andreev Bound State energies in SNS-junction}
+In this chapter we will find the ABS energies in the four situations.
+\\
+\\
+\section{ABS energies without barriers or applied field}
+\label{sec:without}
+We will first consider the system with no applied field ($\Abf=0$) and no barriers ($V_L = V_R = 0$). 
+
+\subsection{Andreev reflection amplitude}
+The probability amplitudes from chapter section \ref{sec:Andreev} may be found by using the boundary conditions in the interface between the normal metal and the super conductor. With no barriers the boundary conditions yields
+\begin{equation}
+\begin{split}
+\psi_i(0,y) + \psi_r(0,y) &= \psi_t(0,y)\\
+\frac{\partial}{\partial x}\psi_i(0,y) + \frac{\partial}{\partial x}\psi_r(0,y) &= \frac{\partial}{\partial x}\psi_t(0,y).
+\end{split}
+\end{equation}
+Solving these equations give the amplitudes 
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+    r_{eh} &= \frac{2e^{-i\varphi}}{\frac{u_0}{v_0}\frac{k_x^-+q^-}{k_x^++k_x^-}\left(1+\frac{k_x^+}{q_x^+}\right)+\frac{v_0}{u_0}\frac{k_x^+-q_x^-}{k_x^++k_x^-}\left(1-\frac{k_x^-}{k_x^+}\right)}\\
+    r_{ee} &= \left(\frac{u_0}{v_0}\frac{k_x^++q^-}{k_x^++k_x^-}+\frac{v_0}{u_0}\frac{k_x^+-q^-}{k_x^++k_x^-}\right)e^{i\varphi}r_{eh}\\
+    t_{ee} &= \frac{1}{v_0}\frac{k_x^-+q_x^-}{k_x^++k_x^-}e^{-i\beta}r_{eh}\\
+    t_{eh} &= \frac{1}{u_0}\frac{k_x^+-q_x^-}{k_x^++k_x^-}e^{i\alpha}r_{eh},
+\end{split}
+\end{equation}
+where $\varphi = \alpha - \beta$ is the phase of the gap parameter as shown in section \ref{sec:Diag}.
+Since we are considering Andreev Bound States we are especially interested in the $r_{eh}$-amplitude, and see that it's expression may be simplified if we use $k_x^{\pm}\approx q_x^{\pm}$:
+\begin{equation}
+    r_{eh} =\frac{v_0}{u_0}e^{-i\varphi}\equiv e^{-i\eta}e^{-i\varphi},
+\end{equation}
+where $\eta$ is as defined in equation \eqref{eta}. Similarly, the amplitude of an incoming hole which is Andreev reflected as an electron will be $r_{he}=r_{eh}^*$:
+\begin{equation}
+    r_{he} = \frac{v_0}{u_0}e^{i\varphi} = e^{-i\eta}e^{i\varphi}.
+\end{equation}
+Consequently, the Andreev reflection of an electron (hole) give a phase shift of $-\eta \mp \varphi$.
+
+\subsection{Bohr-Sommerfeld quantization}
+For the Andreev Bound states we have $E_{\kbf}<\Delta_0$ which yields $\eta = \arccos(E_{\kbf}/\Delta_0)$, according to equation\eqref{eta}. FORKLAR HVORFOR VI KUN SER PÅ ENRGIER UNDER GAPET!. The Bohr-Sommerfeld quantization condition require the total phase obtained by the state in a whole cycle to be a multiple of $2\pi$. REFERANSE. An electron starting at the left interface traveling towards the right interface with an angle $\theta$, see fig. !!!REF!!!!, would gain a phase of $L(k_x^+ + k_y^+\tan\theta)$, with $L$ as the length of the junction, before it is Andreev reflected at the interface with the amplitude $r_{eh}$ and thus is gaining a phase of $-\eta - \varphi$. The state would then continue as a hole traveling back along the same trajectory, obtaining a phase of $-L(k_x^-+ k_y^-\tan\theta)$. Hence, the total phase in the quantization condition gives
+\begin{equation}
+\begin{split}
+    2\pi n &= \oint d\phi = \int_{L}^{R}\pm \fet{k}^{\pm}\cdot d\fet{l} + \phi^R_{(eh)(he)} + \int_{R}^{L}\pm \fet{k}^{\mp}\cdot d\fet{l} + \phi^L_{(he)(eh)}\\
+    &=L(k_x^+-k_x^-)+L\tan\theta(k_y^+-k_y^-) - 2\eta \pm \Delta\varphi
+\end{split}
+\label{quantization1}
+\end{equation}
+where $\phi^{R/L}_{(eh)(he)} = -\eta \mp \varphi_{R/L}$ is the phase from Andreev reflection of a electron (hole) and we have defined the phase difference $\Delta\varphi \equiv \varphi_L-\varphi_R$. The upper sign indicate that the rightgoing state is an electron, while the lower sign indicate that the rightgoing state is a hole. Again we let $k_x^+\approx k_x^-$ and $k_y^+\approx k_y^-$ such that the two first terms vanish and we simply get
+\begin{equation}
+2\pi n = -2\eta \pm \Delta\varphi.
+\label{quantization1}
+\end{equation}
+
+\subsection{ABS energy}
+We can find the Andreev energy levels from the quantization condition above \eqref{quantization1}:
+\begin{equation}
+    E_{\kbf} = \Delta_0 \cos \eta = \Delta_0\cos\left(\frac{\Delta\varphi}{2}\right).
+    \label{AndreevEnergy1}
+\end{equation}
+
+\section{ABS energies with barriers}
+We will in this section allow for barriers. Then the Andreev reflection amplitude will be more complicated so that we can not express it as a phase shift like we did above. We will instead find the energies by setting up the wave-functions in each region, insert the wave-functions in the boundary conditions and solve the system. The Hamiltonian of the system will be as given in equation \eqref{Ham-3}, but with no external field so that we can set $\fet{A}$ to zero. Hence, $h_{S/N}(x,y) = -\hbar^2\nabla^2/2m -\mu_{S/N}$.
+\\
+\\
+
+\subsection{Boundary conditions}
+\label{sec:BC}
+Charge conservation yields continuous wave-functions at the interfaces:
+\begin{equation}
+\begin{split}
+    &\Psi_L(-L/2,y) = \Psi_N(-L/2,y) \equiv \Psi(-L/2,y),\\
+    &\Psi_R(L/2,y) = \Psi_N(L/2,y) \equiv \Psi(L/2,y).
+\end{split}
+\end{equation}
+We find the boundary conditions for the derivatives by integrating the BdG-equations \eqref{BdG-2}:
+\begin{equation*}
+\begin{split}
+    0 &= \lim_{\epsilon \rightarrow 0} \int_{-L/2-\epsilon}^{-L/2+\epsilon} E_{\kbf}\Psi(x,y) dx = \lim_{\epsilon \rightarrow 0} \int_{-L/2-\epsilon}^{-L/2+\epsilon}
+    \begin{pmatrix}
+    \hat{H}(x,y) & \hat{\Delta}(x) \\
+    \hat{\Delta}^{\dagger}(x) & -\hat{H}(x,y)
+    \end{pmatrix}
+    \Psi(x,y)dx
+    \\
+    &=\lim_{\epsilon \rightarrow 0} \int_{-L/2-\epsilon}^{-L/2^-}
+    \begin{pmatrix}
+    h_S(x,y)\hat{\sigma}_0 & i\Delta(x)\hat{\sigma}_2 \\
+    -i\Delta^*(x)\hat{\sigma}_2 & -h_S(x,y)\hat{\sigma}_0
+    \end{pmatrix}
+    \Psi_{L}(x,y)dx
+    +
+    \begin{pmatrix}
+    V_L\hat{\sigma}_0 & 0\\
+    0 & -V_L\hat{\sigma}_0
+    \end{pmatrix}
+    \Psi(-L/2,y)
+    \\
+    & \quad +\lim_{\epsilon \rightarrow 0} \int_{-L/2^+}^{-L/2+\epsilon}
+    \begin{pmatrix}
+    h_N(x)\hat{\sigma}_0 & 0 \\
+    0 & -h_S(x)\hat{\sigma}_0
+    \end{pmatrix}
+    \Psi_{N}(x,y)dx\\
+    &=
+    \begin{pmatrix}
+    \hat{\sigma}_0 & 0\\
+    0 & -\hat{\sigma}_0
+    \end{pmatrix}
+    \left(
+    V_L\Psi(-L/2,y)
+    -\frac{\hbar^2}{2m}
+    \lim_{\epsilon \rightarrow 0}
+    \left(\int_{-L/2-\epsilon}^{-L/2^-} 
+    \frac{\partial^2}{\partial x^2} \Psi_L(x,y) dx
+    + \int_{-L/2^+}^{-L/2+\epsilon} 
+    \frac{\partial^2}{\partial x^2} \Psi_N(x,y) dx \right)
+    \right)\\
+    &=
+    \begin{pmatrix}
+    \hat{\sigma}_0 & 0\\
+    0 & -\hat{\sigma}_0
+    \end{pmatrix}
+    \left(
+    V_L\Psi(-L/2,y) -
+    \frac{\hbar^2}{2m}\left(
+    \frac{\partial\Psi_N}{\partial x}\bigg|_{x=-L/2}
+    -
+    \frac{\partial\Psi_L}{\partial x}\bigg|_{x=-L/2}
+    \right)\right),
+\end{split}
+\end{equation*}
+and the boundary condition at the left interface for the derivatives is thus
+\begin{equation}
+    \frac{\partial\Psi_N}{\partial x}\bigg|_{x=-L/2} - \frac{\partial\Psi_L}{\partial x}\bigg|_{x=-L/2} = \frac{2m}{\hbar^2}V_L\Psi(-L/2,y).
+\end{equation}
+Similarly, we get
+\begin{equation}
+    \frac{\partial\Psi_R}{\partial x}\bigg|_{x=L/2} - \frac{\partial\Psi_N}{\partial x}\bigg|_{x=L/2} = \frac{2m}{\hbar^2}V_R\Psi(L/2,y). \quad \quad
+\end{equation}
+as boundary condition at the right interface.
+
+\subsection{Wave functions in the superconduction region}
+The solution of the BdG-equations \eqref{BdG-2} that satisfy the boundary conditions will be on the form 
+\begin{equation}
+    \Psi_{\kbf^{\pm}}(\fet{r}) = 
+    \begin{pmatrix}
+    \vec{u}_{\kbf} \\ \vec{v}_{\kbf}
+    \end{pmatrix}
+    e^{i\fet{k}^{\pm}\cdot \fet{r}},
+\end{equation}
+Hence, the time-independent Schrödinger equation yields
+\begin{equation}
+    h(\fet{r})\Psi_{\kbf^{\pm}}(\fet{r}) = \left(\frac{\hbar^2k^{\pm2}}{2m}-\mu\right)\Psi_{\kbf^{\pm}}(\fet{r}) \equiv \varepsilon^{\pm}_{k} \Psi_{\kbf^{\pm}}(\fet{r}),
+\end{equation}
+where $h(\fet{r})$ is either $h_S$ or $h_N$, depending on the region. For the eigenvalue problem in the BdG-equations \eqref{BdG-2} we must calculate
+\begin{equation}
+\begin{split}
+    0 &= 
+    \det\begin{pmatrix}
+        \left(\varepsilon^{\pm}_{\kbf} - E_{\kbf}\right)\hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
+        -i\Delta^*\hat{\sigma}_2 & \left(-\varepsilon^{\pm}_{\kbf} - E_{\kbf}\right)\hat{\sigma}_0
+    \end{pmatrix}
+    \\&=
+    \left(\varepsilon^{\pm}_{\kbf}-E_{\kbf}\right)^2\left(\varepsilon^{\pm}_{\kbf} + E_{\kbf} + \frac{\Delta_0^2}{\varepsilon^{\pm}_{\kbf} - E_{\kbf}}\right)^2.
+\end{split}
+\label{det}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+    \\ &= 
+    \det\begin{pmatrix}(\varepsilon^{\pm}_{k} -E_{k})\hat{\sigma}_0\end{pmatrix}
+    \det\begin{pmatrix}
+    -(\varepsilon^{\pm}_{k} + E_{k})\hat{\sigma}_0 + i\Delta^*\hat{\sigma}_2\frac{1}{\varepsilon^{\pm}_{k}-E_{k}}i\Delta\hat{\sigma}_2
+    \end{pmatrix}
+where we have used the relation 
+\begin{equation}
+\det\begin{pmatrix}
+A & B \\ C & D
+\end{pmatrix}
+= \det\big(A\big)\det\big(D-CA^{-1}B\big).
+\end{equation}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As $E_{\kbf} = \varepsilon^{\pm}_{\kbf}$ would give zero in the denominator when $\Delta_0$ is non-zero, the only solution to the above equation \eqref{det} is
+\begin{equation}
+E_{\kbf}^2 = \varepsilon^{\pm2}_{\kbf} + \Delta_0^2
+\end{equation}
+which agrees with the energies obtained in equation \eqref{Ek}. $k^{\pm}$ and $\varepsilon^{\pm}_{\kbf}$ will be as in equation \eqref{kpm}. We will here only consider positive energies, $E_{\kbf}=\sqrt{\varepsilon^{\pm2}_{\kbf} + \Delta_0^2}$. For $\varepsilon^+_{\kbf} = +\sqrt{E_{\kbf}^2-\Delta_0^2} = i\Delta_0\sin\eta$ we get the (non-normalized) wave-functions describing electronlike quasiparticles:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+We find the wave functions corresponding to the eigenvalue $+E_{k,S}$, by reducing the matrix
+\begin{equation}
+\begin{pmatrix}
+\big(\varepsilon_{k,S} - E_{k,S}\big) \hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
+-i\Delta^*\hat{\sigma}_2 & -\big(\varepsilon_{k,S} + E_{k,S}\big)\hat{\sigma_0}  
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+\hat{\sigma}_0 & -i\frac{u_0}{v_0}e^{i\gamma}\hat{\sigma}_2 \\
+0 & 0
+\end{pmatrix}
+\end{equation}
+which give the solutions
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+    \Psi^{\pm}_{e,\uparrow}(x,y) = 
+    \begin{pmatrix}
+        e^{i(\eta + \varphi)} \\ 0 \\ 0 \\ 1
+    \end{pmatrix}e^{i(\pm k_x^{+}x + k_y^+y)}
+    \quad \mathrm{and} \quad 
+    \Psi^{\pm}_{e,\downarrow}(x,y) = 
+    \begin{pmatrix}
+        0 \\ e^{i(\eta+\varphi)} \\ -1 \\0
+    \end{pmatrix}e^{i(\pm k_x^+x +k_y^+y)},
+\end{equation}
+Where $\Psi^+_{e,\sigma}$ are right-going waves, while $\Psi^-_{e,\sigma}$ are left-going waves. Similarly, for $\varepsilon^-_k = -\sqrt{E_k^2-\Delta_0^2} = -i\Delta_0\sin\eta$ we get the wave-functions describing holelike quasiparticles:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+Similarly, the wave functions corresponding to the eigenvalue $-E_{k,S}$ give
+\begin{equation}
+\begin{pmatrix}
+\big(\varepsilon_{k,S} + E_{k,S}\big) \hat{\sigma}_0 & i\Delta\hat{\sigma}_2 \\
+-i\Delta^*\hat{\sigma}_2 & -\big(\varepsilon_{k,S} - E_{k,S}\big)\hat{\sigma_0}  
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+\hat{\sigma}_0 & i\frac{v_0}{u_0}e^{i\gamma}\hat{\sigma}_2 \\
+0 & 0
+\end{pmatrix}
+\end{equation}
+which give the solutions
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+    \Psi^{\pm}_{h,\uparrow}(x,y) = 
+    \begin{pmatrix}
+        1\\0\\0 \\ e^{i(\eta-\varphi)}
+    \end{pmatrix}e^{i(\pm k_x^-x + k_y^-y)}
+    \quad \mathrm{and} \quad 
+    \Psi^{\pm}_{h,\downarrow}(x,y) = 
+    \begin{pmatrix}
+        0\\-1 \\e^{i(\eta-\varphi)}\\0
+    \end{pmatrix}e^{i(\pm k_x^-x + k_y^-y)},
+\end{equation}
+where $\Psi^+_{h,\sigma}$ are left-going waves, while $\Psi^-_{h,\sigma}$ are right-going waves. The direction of the waves is determined from the group velocity:
+\begin{equation}
+    \fet{v}_g = \frac{1}{\hbar}\frac{\partial E_{\kbf}}{\partial \fet{k}} = \frac{\varepsilon_{\kbf}^{\pm}}{E_{\kbf}}\frac{\hbar\fet{k}^{\pm}}{m}.
+\end{equation}
+\\
+\\
+We allow for different phases, $\varphi_L$ and $\varphi_R$, in each region. As we will only consider Andreev bound states, i.e. with energies $E_{\kbf}<\Delta_0$, the wave vectors \eqref{kpm} will get imaginary parts and must vanish in the superconductors. Consequently there will be no incoming wave-functions from the superconductor into the normal metal with such energies and we need only to consider the outgoing wave-functions in the superconducting regions. We let $k_y^+ \approx k_y^- \equiv k_y$ and the total wave functions in the left (L) and right (R) region will thus be
+\begin{equation}
+\begin{split}
+    \Psi_L(x-L/2,y) &= \Psi_L(x-L/2)e^{ik_yy}\\
+    \Psi_R(x+L/2,y) &= \Psi_R(x+L/2)e^{ik_yy}
+\end{split}
+\end{equation}
+with $\Psi_{L/R}(x\mp L/2)$ defined as 
+\begin{equation}
+\begin{split}
+\Psi_L(x-L/2) &= 
+a_1
+\begin{pmatrix}
+e^{i(\eta + \varphi_L)} \\ 0 \\ 0 \\ 1
+\end{pmatrix}e^{-ik_x^+x}
++
+a_2
+\begin{pmatrix}
+0 \\ e^{i(\eta+\varphi_L)} \\ -1 \\ 0
+\end{pmatrix}e^{-ik_x^+x}
++
+a_3
+\begin{pmatrix}
+1 \\0\\0 \\ e^{i(\eta-\varphi_L)}
+\end{pmatrix}e^{ik_x^-x}
++
+a_4
+\begin{pmatrix}
+0\\-1\\ e^{i(\eta-\varphi_L)}\\0
+\end{pmatrix}e^{ik_x^-x}
+\\
+\Psi_R(x+L/2) &= 
+b_1
+\begin{pmatrix}
+e^{i(\eta + \varphi_R)} \\ 0 \\ 0 \\ 1
+\end{pmatrix}e^{ik_x^+x}
++
+b_2
+\begin{pmatrix}
+0 \\ e^{i(\eta+\varphi_R)} \\ -1 \\ 0
+\end{pmatrix}e^{ik_x^+x}
++
+b_3
+\begin{pmatrix}
+1 \\0\\0 \\ e^{i(\eta-\varphi_R)}
+\end{pmatrix}e^{-ik_x^-x}
++
+b_4
+\begin{pmatrix}
+0\\-1\\ e^{i(\eta-\varphi_R)}\\0
+\end{pmatrix}e^{-ik_x^-x}.
+\end{split}
+\end{equation}
+We have here absorbed a phase factor $\exp(\pm ik_xL/2)$ in the coefficients in order to simplify the boundary equations. 
+
+\subsection{Normal region}
+In the normal region the gap parameter, $\Delta(x)$, is zero, and so $u_0 = 1$ and $v_0 = 0$ and the eigenvalues are $E_{k}$ such that $\varepsilon^{\pm}_{k}= \pm E_k$. The corresponding eigenvectors are
+\begin{equation}
+\begin{split}
+    \Psi_{e,\uparrow}(\fet{r}) = 
+    \begin{pmatrix}
+        1 \\ 0 \\ 0 \\ 0
+    \end{pmatrix}e^{i\fet{k}^+\cdot \fet{r}},
+    \quad
+    \Psi_{e,\downarrow}(\fet{r}) = 
+    \begin{pmatrix}
+        0 \\ 1 \\ 0 \\0
+    \end{pmatrix}e^{i\fet{k}^+\cdot\fet{r}},
+    \quad
+    \Psi_{h,\uparrow}(\fet{r}) = 
+    \begin{pmatrix}
+        0 \\ 0 \\ 1 \\0
+    \end{pmatrix}e^{i\fet{k}^-\cdot\fet{r}},
+    \quad
+    \Psi_{h,\downarrow}(\fet{r}) = 
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ 1
+    \end{pmatrix}e^{i\fet{k}^-\cdot\fet{r}}.
+\end{split}
+\end{equation}
+We must here allow both right- and leftgoing waves and the total wave function in the normal region becomes
+\begin{equation}
+\Psi_N(x-L/2,y) = \Psi_N(x-L/2)e^{ik_yy}
+\end{equation}
+with
+\begin{equation}
+\begin{split}
+\Psi_N(x-L/2) &= 
+c_1
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{pmatrix}e^{ik^+x}
++
+c_2
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{pmatrix}e^{-ik^+x}
++
+c_3
+\begin{pmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}e^{ik^+x}
++
+c_4
+\begin{pmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}e^{-ik^+x}
+\\&+
+c_5
+\begin{pmatrix}
+0 \\ 0 \\ 1 \\ 0
+\end{pmatrix}e^{ik^-x}
++
+c_6
+\begin{pmatrix}
+0 \\ 0 \\ 1 \\ 0
+\end{pmatrix}e^{-ik^-x}
++
+c_7
+\begin{pmatrix}
+0 \\ 0 \\ 0 \\ 1
+\end{pmatrix}e^{ik^-x}
++
+c_8
+\begin{pmatrix}
+0 \\ 0 \\ 0 \\ 1
+\end{pmatrix}e^{-ik^-x}.
+\end{split}
+\end{equation}
+
+\subsection{ABS energy}
+We use the boundary conditions found in section \ref{sec:BC}:
+\begin{equation}
+\begin{split}
+    &\Psi_L(-L/2) - \Psi_N(-L/2) = 0\\
+    &\Psi_R(L/2) - \Psi_N(L/2) = 0\\
+    &\frac{\partial \Psi_N(x)}{\partial x}\bigg|_{x = -L/2} - \frac{\partial \Psi_L(x)}{\partial x}\bigg|_{x = -L/2} - Z_L k_x\Psi_L(-L/2) = 0\\
+    &\frac{\partial \Psi_R(x)}{\partial x}\bigg|_{x = L/2} - \frac{\partial \Psi_N(x)}{\partial x}\bigg|_{x = L/2} - Z_R k_x\Psi_R(L/2) = 0
+\end{split}
+\end{equation}
+and insert the equations in a homogeneous matrix equation of the form $\mathrm{M} \big(a_1 \cdots a_4 \ b_1 \cdots b_4 \ c_1 \cdots c_8\big)^T = 0$ where $\mathrm{M}$ is a $16 \times 16$-matrix, see appendix !!!APPENDIX!!!. We have let $k_x^+ \approx k_x^- \equiv k_x$ and defined the barrier strengths
+\begin{equation}
+    Z_L = \frac{2mV_L}{\hbar^2 k_x^2}
+    \quad \mathrm{and} \quad
+    Z_R = \frac{2mV_R}{\hbar^2 k_x^2}.
+\end{equation}
+The determinant of M is found to be
+\begin{equation}
+    \det(\mathrm{M}) = \left(8e^{i\eta}\right)^4\left[\sin^2\frac{\Delta\varphi}{2}-(1+\zeta)\sin^2\eta\right]^2
+\end{equation}
+which must be zero in order for the equations to have non-trivial solutions. Hence, the energy is
+\begin{equation}
+    E=\Delta_0\cos\eta = \Delta_0\sqrt{\frac{\cos^2 \frac{\Delta\varphi}{2} + \zeta}{\zeta + 1}}.
+    \label{AndreevEnergy2}
+\end{equation}
+We have again let $\Delta\varphi = \varphi_L-\varphi_R$ be the phase difference between the left and right semiconductor. We have also introduced $\zeta$ which measures the effect of the barriers and is given as
+\begin{equation}
+    \zeta = Z^2 + z^2\sin(k_FL)\left[Z\cos(k_FL)+\left(\frac{z^2}{4}-1\right)\sin(k_FL)\right]
+\end{equation}
+where $Z$ and $z$ are defined as 
+\begin{equation}
+    Z=\frac{Z_L + Z_R}{2}
+    \quad \mathrm{and} \quad
+    z = \sqrt{Z_LZ_R}.
+\end{equation}
+In the limit with no barrier, i.e. $\zeta = 0$ we see that equation \eqref{AndreevEnergy2} yields \eqref{AndreevEnergy1}.
+
+\section{ABS energies with applied field}
+We will now apply a magnetic field, $\vec{B}$, to the junction, and let the barriers be transparent. This imply modifying the Hamiltonian to 
+\begin{equation}
+    h_N(\fet{r}) = \frac{1}{2m_N}\left(\frac{\hbar}{i}\nabla-q\fet{A}(\fet{r})\right)^2+q\varphi-\mu_N    
+\end{equation}
+with $\fet{A}(\fet{r})$ as the vector potential and $\varphi$ as the scalar potential. 
+\\
+\\
+Our strategy now is the same as in section \ref{sec:without}. We want to express the problem in the phase of the wave function and use the quantization condition to find the energy.
+
+\subsection{Guage transformation}
+As we must have Gauge invariance we may do the transformation 
+\begin{equation}
+\begin{split}
+    \fet{A'} &= \fet{A} + \nabla f\\
+    \varphi' &= \varphi - \frac{\partial f}{\partial t}
+\end{split}
+\end{equation}
+where $f$ is any function of position and time. Doing such transformation imply a transformation in the wavefunction $\Psi$ as well. Considering the time-dependent Schrödinger equation yields
+\begin{equation}
+\begin{split}
+    i\hbar\frac{\partial\Psi}{\partial t} &= \left[\frac{1}{2m}\left(\frac{\hbar}{i}\nabla-q\fet{A}\right)^2+q\varphi -\mu_N\right]\Psi\\
+    &= \left[\frac{1}{2m}\left(\frac{\hbar}{i}\nabla-q\fet{A}'+ q\nabla f \right)^2+q\varphi' + q\frac{\partial f}{\partial t} -\mu_N\right]\Psi,
+\end{split}
+\end{equation}
+giving
+\begin{equation}
+i\hbar\frac{\partial \Psi}{\partial t}-q\frac{\partial f}{\partial t}\Psi = \left[\frac{1}{2m}\left(\frac{\hbar}{i}\nabla-q\fet{A}'+ q\nabla f \right)^2+q\varphi' -\mu_N\right]\Psi
+\end{equation}
+or
+\begin{equation}
+\begin{split}
+    i\hbar\frac{\partial}{\partial t}\left(\Psi e^{iqf/\hbar}\right) &= e^{iqf/\hbar}\left[\frac{1}{2m}\left(\frac{\hbar}{i}\nabla-q\fet{A}'+q\nabla f\right)^2+q\varphi'\right]\Psi\\
+    &=\left[\frac{1}{2m}\left(\frac{\hbar}{i}\nabla-q\fet{A}'\right)^2 + q \varphi' \right]\left(\Psi e^{iqf/\hbar}\right),
+\end{split}
+\end{equation}
+where we have used that
+\begin{equation}
+    e^{iqf/\hbar}\left(\frac{\hbar}{i}\nabla + q\nabla f \right)\Psi = \frac{\hbar}{i}\nabla\left( e^{iqf/\hbar}\Psi \right).
+\end{equation}
+The Schrödinger equation in the transformed system is now on the same form as the original system:
+\begin{equation}
+    i\hbar\frac{\partial \Psi'}{\partial t} = \left[\frac{1}{2m}\left(\frac{\hbar}{i}\nabla -q\fet{A}'\right)^2 + q\varphi'\right]\Psi'
+\end{equation}
+with $\Psi' = e^{iqf/\hbar}\Psi$. Thus a Gauge transformation $\fet{A} \rightarrow \fet{A} + \nabla \chi$ imply a transformation $\phi \rightarrow \phi + q\chi/\hbar$ in the phase.
+\\
+\\
+A Gauge invariant phase will be on the form
+\begin{equation}
+    \phi_{\mathrm{GI}} = \phi - \frac{q}{\hbar}\int\fet{A}\cdot d\fet{r},
+\end{equation}
+as transformation $\phi \rightarrow \phi + q\chi/\hbar$ and $\fet{A}\rightarrow \fet{A} + \nabla\chi$ give
+\begin{equation}
+\begin{split}
+    \phi_{\mathrm{GI}} &\rightarrow \phi + \frac{q}{\hbar}\chi - \frac{q}{\hbar}\int\left(\fet{A} + \nabla \chi \right)\cdot d\fet{r} = \phi - \frac{q}{\hbar}\int \fet{A} \cdot d \fet{r} + \frac{q}{\hbar}\chi - \frac{q}{\hbar}\chi \\
+    &= \phi - \frac{q}{\hbar} \int \fet{A}\cdot d\fet{r}.
+\end{split}
+\end{equation}
+We have in the preveous sections taken $\fet{A}$ to be zero so that $\phi_{\mathrm{GI}} = \phi$. However, now we must include the vector potential in the phase as the magnetic field is non-zero.
+
+\subsection{Bohr-Sommerfeld quantization condition}
+Using the same method as in equation \eqref{quantization1}, but with the Gauge invariant phase we get the quantization condition
+\begin{equation}
+\begin{split}
+    2\pi n &= \oint d\phi = \int_{L}^{R}\pm \fet{k}^{\pm}\cdot d\fet{l} \pm \frac{e}{\hbar}\int_L^R\fet{A}\cdot d\fet{l} + \phi^R_{(eh)(he)} + \int_{R}^{L}\pm \fet{k}^{\mp}\cdot d\fet{l} \mp \frac{e}{\hbar}\int_R^L\fet{A}\cdot d\fet{l} + \phi^L_{(he)(eh)}\\
+    &=L(k_x^+-k_x^-)+L\tan\theta(k_y^+-k_y^-) - 2\eta \pm\left( \Delta\varphi + \frac{2e}{\hbar}\int_L^R \fet{A}\cdot d\fet{l}\right).
+\end{split}
+\end{equation}
+Again, we let $k_x^+ \approx k_x^-$ and $k_y^+ \approx k_y^-$ and are left with 
+\begin{equation}
+    2\pi n = - 2\eta \pm\left( \Delta\varphi - \gamma \right),
+\end{equation}
+where we have defined
+\begin{equation}
+\gamma = -\frac{2e}{\hbar}\int_L^R \fet{A}\cdot d\fet{l}.
+\label{gamma}
+\end{equation}
+We have assumed the curvature of the electrons, due to the Lorentz force, to be much larger than the length of the junction, so that we can neglect the effect the field has on the trajectory of the electrons/holes. 
+
+\subsection{ABS energy}
+The energy is then 
+\begin{equation}
+E_{\kbf} = \Delta_0 \cos \eta = \Delta_0\cos\left(\frac{\Delta\varphi}{2} -\frac{\gamma}{2}\right).
+\label{AndreevEnergy3}
+\end{equation}
+We see that when the the field is zero, i.e. $\gamma = 0$, we get the same expression as equation \eqref{AndreevEnergy1}. 
+
+\begin{comment}
+
+\section{ABS energies with barriers and applied field}
+By using the same approach as in section \ref{sec:EwithBarriers}, but with the modified wave-vectors that include magnetic field we may find the ABS energies for the case where we have both barriers and applied field. 
+\subsection{Boundary conditions}
+We will have the same boundary conditions as in equations \eqref{BC1-BC3}. With the wavevector and its derivative given as 
+\begin{equation}
+\begin{split}
+    \Psi_k^{\pm}(x)&=
+    \begin{pmatrix}
+        \vec{u}_k \\ \vec{v}_k
+    \end{pmatrix}    
+    e^{i(k^{\pm}x\mp ef(x)/\hbar)}\\
+    \frac{\partial \Psi_k^{\pm}(x)}{\partial x} &=
+    i\left(k^{\pm} \mp \frac{e}{\hbar}\frac{\partial f}{\partial x}\right)\Psi_k^{\pm}(x) = i\left(k^{\pm} \pm\frac{e}{\hbar}A(x)\right)\Psi_k^{\pm}(x)
+\end{split}
+\end{equation}
+\end{comment}
