@@ -1,10 +1,10 @@
 l= 0.3;
 option = 2;
-lambda = [1.5 2 3 4 6 8 20]; %0.5;%[0 0.10 0.20 0.25 0.3 0.4 0.45 0.5 0.55 0.6 0.7 0.75 0.8 0.9 1 1.1 1.5]; %0.7;%0.2:0.1:10;
+lambda = 20;
 video = 0;
-vortex = 1;
+vortex = 0;
 
-phi = 0;
+phi = pi/2;
 nx = 50;
 ny = 200;
 %nk = 100;
@@ -12,6 +12,12 @@ ntheta = 100;
 
 cm = colormap(jet);
 cm = cm(10:50,:);
+
+% caxis([-7 7])
+% S=1; %fully saturated
+% L=[.1 1 .1]; %dark-white-dark
+% cm = hslcolormap('mbbccc.YYYRRm',S,L); %magenta-blue-cyan / yellow-red-magenta
+% cm = cm(20:280,:);
 
 if(video == 1)
     writerobj = VideoWriter('out.avi');
@@ -83,8 +89,8 @@ for k = 1:length(lambda)
     figGcf.PaperPosition = [0 0 .4 1];
     
     if(video == 0)
-        filename1 = ['C:\Users\Anna\OneDrive\Documents\Project\Final Figures\Dist' num2str(option) '\Dist' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k)))))]; 
-        filename2 = ['C:\Users\Anna\OneDrive\Documents\Project\Final Figures\Dist' num2str(option) '\Matlab\Dist' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k)))))]; 
+        filename1 = ['C:\Users\Anna\Documents\GitHub\Project\Figures\Dist' num2str(option) '\Dist' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k))))) 'phi_pi-' floor(num2str(pi/phi))]; 
+        filename2 = ['C:\Users\Anna\Documents\GitHub\Project\Figures\Dist' num2str(option) '\Matlab\Dist' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k))))) 'phi_pi-' floor(num2str(pi/phi))]; 
         print(filename1,'-dpng')
         savefig(filename2)
     else
@@ -92,8 +98,8 @@ for k = 1:length(lambda)
         writeVideo(writerobj,frame);
     end
     
-    if( option == 1 && vortex == 1)
     close(fig);
+    if( option == 1 && vortex == 1)
     hold off
     
     fig2 = figure(2*k);
@@ -123,8 +129,8 @@ for k = 1:length(lambda)
     figGcf.PaperUnits = 'normalized';
     figGcf.PaperPosition = [0 0 .4 1];
     
-    filename1 = ['C:\Users\Anna\OneDrive\Documents\Project\Final Figures\Dist' num2str(option) '\Vortex' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k))))) 'phi']; 
-    filename2 = ['C:\Users\Anna\OneDrive\Documents\Project\Final Figures\Dist' num2str(option) '\Matlab\Vortex' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k))))) 'phi']; 
+    filename1 = ['C:\Users\Anna\Documents\GitHub\Project\Figures\Dist' num2str(option) '\Vortex' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k))))) 'phi_pi-' floor(num2str(pi/phi))]; 
+    filename2 = ['C:\Users\Anna\Documents\GitHub\Project\Figures\Dist' num2str(option) '\Matlab\Vortex' num2str(option) '_l_0-' num2str(l*10) '_lambda_' num2str(floor(lambda(k))) '-' num2str(floor(100*(lambda(k)-floor(lambda(k))))) 'phi_pi-' floor(num2str(pi/phi))]; 
     print(filename1,'-dpng')
     print(filename1,'-dpdf')
     savefig(filename2)
