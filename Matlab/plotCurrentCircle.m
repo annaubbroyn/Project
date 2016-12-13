@@ -1,10 +1,10 @@
-l= 0.3;
-option = 2;
-lambda = 20;
+l= 0.8;
+option = 1;
+lambda = [8 20];
 video = 0;
 vortex = 0;
 
-phi = pi/2;
+phi = pi/4  ;
 nx = 50;
 ny = 200;
 %nk = 100;
@@ -67,9 +67,10 @@ for k = 1:length(lambda)
     fig.OuterPosition = [.05 .05 .17 .9];
     L = sqrt(jx.^2 + jy.^2);
     %quiver(x,y,jx,jy,'r','AutoScaleFactor',.3);
-    %quiver(x(1:2:nx,1:2:ny),y(1:2:nx,1:2:ny),jx(1:2:nx,1:2:ny),jy(1:2:nx,1:2:ny),'r','AutoScaleFactor',0.5);
-    quiver(x(1:3:nx,1:3:ny),y(1:3:nx,1:3:ny),jx(1:3:nx,1:3:ny),jy(1:3:nx,1:3:ny),'r','AutoScaleFactor',0.4);
-    %quiver(x(1:5:nx,1:5:ny),y(1:5:nx,1:5:ny),jx(1:5:nx,1:5:ny),jy(1:5:nx,1:5:ny),'r','AutoScaleFactor',0.5);
+    %quiver(x(1:2:nx,1:2:ny),y(1:2:nx,1:2:ny),jx(1:2:nx,1:2:ny),jy(1:2:nx,1:2:ny),'r','AutoScaleFactor',0.3);
+    %quiver(x(1:3:nx,1:3:ny),y(1:3:nx,1:3:ny),jx(1:3:nx,1:3:ny),jy(1:3:nx,1:3:ny),'r','AutoScaleFactor',0.4);
+    %quiver(x(1:3:nx,1:3:ny),y(1:3:nx,1:3:ny),jx(1:3:nx,1:3:ny),jy(1:3:nx,1:3:ny),'r','AutoScaleFactor',0.3);
+    quiver(x(1:5:nx,1:5:ny),y(1:5:nx,1:5:ny),jx(1:5:nx,1:5:ny),jy(1:5:nx,1:5:ny),'r','AutoScaleFactor',0.5);
     %quiver(x(1:4:nx,1:4:ny),y(1:4:nx,1:4:ny),jx(1:4:nx,1:4:ny)./L(1:4:nx,1:4:ny),jy(1:4:nx,1:4:ny)./L(1:4:nx,1:4:ny),'r','AutoScaleFactor',.4);
     %quiver(x(1:4:nx,1:10:ny),y(1:4:nx,1:10:ny),jx(1:4:nx,1:10:ny)./L(1:4:nx,1:10:ny),jy(1:4:nx,1:10:ny)./L(1:4:nx,1:10:ny),'r','AutoScaleFactor',.5);
     h = surf(x,y,0.5*jtot);
