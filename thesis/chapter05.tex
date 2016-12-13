@@ -1,5 +1,6 @@
 \chapter{Andreev Bound State Current in SNS-junction}
-We can use equation \eqref{JosephsonCurrent} and \eqref{FreeEnergy} to express the Josephson current in terms of the ABS energy and the phase difference.
+\label{sec:current}
+In chapter \ref{sec:Josephson} we saw how the Josephson current can be expressed in terms of the free energy and phase difference between the two superconductors \eqref{JosephsonCurrent}. In chapter \ref{sec:FreeEnergy} we expressed the free energy in terms of the energy levels, $E_{\kbf}$. Using equation \eqref{JosephsonCurrent} and \eqref{FreeEnergy} we can thus express the Josephson current in terms of the ABS energy and the phase difference:
 \begin{equation}
 \begin{split}
     I_x(\Delta \varphi) &= \sum_{k_y} \delta I(\fet{r},\fet{k}) \rightarrow \int dy \int \frac{dk_y}{2\pi} \delta I(\fet{r},\fet{k}),\\
@@ -10,23 +11,32 @@ We can use equation \eqref{JosephsonCurrent} and \eqref{FreeEnergy} to express t
 where we have defined 
 \begin{equation}
     \delta I(\fet{r},\fet{k}) \equiv -\frac{2e}{\hbar}\tanh\left(\frac{E_{\kbf}}{2k_BT}\right)\frac{\partial E_{\kbf}}{\partial (\Delta \varphi)}
-    \label{Current5}
+\label{Current5}
 \end{equation}
 and $I_y$ should be zero due to current conservation. The current density will be given as
 \begin{equation}
 \begin{split}
-    j_x(x,y) &= \int \frac{dk_y}{2\pi} \delta I(\fet{r},\fet{k}) = \frac{k_F}{2\pi}\int d\theta_k \cos\theta_k \delta I(\fet{r},\fet{k}) ,\\
-    j_y(x,y) &= \int \frac{dk_x}{2\pi} \delta I(\fet{r},\fet{k}) = \frac{k_F}{2\pi}\int d\theta_k \sin\theta_k \delta I(\fet{r},\fet{k}).\\
+    j_x(x,y) &= \int \frac{dk_y}{2\pi} \delta I(\fet{r},\fet{k}) = \frac{k_F}{2\pi}\int_{-\pi/2}^{\pi/2} d\theta_k \cos\theta_k \delta I(\fet{r},\fet{k}) ,\\
+    j_y(x,y) &= \int \frac{dk_x}{2\pi} \delta I(\fet{r},\fet{k}) = \frac{k_F}{2\pi}\int_{-\pi/2}^{\pi/2} d\theta_k \sin\theta_k \delta I(\fet{r},\fet{k}),
 \end{split}
 \label{CurrentDensity}
 \end{equation}
+where we have let 
+\begin{equation}
+\begin{pmatrix}dk_x\\dk_y\end{pmatrix} \rightarrow k_F\begin{pmatrix}\sin\theta_k\\ \cos\theta_k\end{pmatrix}d\theta_k
+\end{equation}
+as we consider the circular Fermi surface, as stated in chapter \ref{sec:PhysicalSystem}.
+\\
+\\
+In chapter \ref{sec:energies} the ABS energy levels were found for the three different situations and we will in this chapter use these energies in equation \eqref{CurrentDensity} to find the current density and in equation \eqref{TotalCurrent} to find the total and critical current for each of the three situations. For the analytical progress we will consider the high temperature regime, $(k_BT \gtrsim \Delta_0)$, in which the analytical calculations are simpler.
 
 \section{ABS current without barriers or applied field}
+\label{sec:CurrentWithout}
 In the case with no barriers or magnetic field we use equation \eqref{AndreevEnergy1} in equation \eqref{Current5} to obtain
 \begin{equation}
     \delta I = \frac{e\Delta_0}{\hbar}\sin\left(\frac{\Delta\varphi}{2}\right)\tanh\left(\frac{\Delta_0\cos(\Delta\varphi/2)}{2k_BT}\right),
 \end{equation}
-which we notice is independent of position and $\theta_k$. We find the current density to be zero in the $y$-direction, i.e. $j_y(x,y) = 0$. The current density along the $x$-axis is uniform $j_x(x,y) = I_x/W$, and the total current is
+which we notice is independent of the trajectory of the particle. From equation \eqref{CurrentDensity} one finds the current density to be zero in the $y$-direction, $j_y(x,y) = 0$, and uniform in the $x$-direction, $j_x(x,y) = I_x/W$, where $W$ is the junction width (indicated in figure \ref{fig:Explaination}) and $I_x$ as the total current:
 \begin{equation}
 \begin{split}
    I_x = k_F W\frac{e\Delta_0}{\pi \hbar} \sin\left(\frac{\Delta\varphi}{2}\right)\tanh\left(\frac{\Delta_0\cos(\Delta\varphi/2)}{2k_BT}\right).
@@ -42,47 +52,59 @@ and the high temperature critical current is
     I_{c,0} = \frac{k_F W e\Delta_0^2}{4\pi \hbar k_BT}.
 \label{Ic0-highT}
 \end{equation}
-
+These results are well known !!!CITE!!! and will be used for comparison in the preceding sections. 
 
 \section{ABS current with barriers}
-In the case with barriers we obtained the ABS energy in equation in \eqref{AndreevEnergy2}, which give
+\label{sec:CurrentWithBarriers}
+The ABS energy levels in the case of no barriers was found in equation \eqref{AndreevEnergy2}. Inserting this in equation \eqref{Current5} yields
 \begin{equation}
 \delta I = \frac{e \Delta_0}{2 \hbar}\frac{\sin(\Delta \varphi)}{\sqrt{(\cos^2(\Delta \varphi /2 )+ \zeta)(\zeta + 1)}}\tanh\left(\frac{\Delta_0}{2k_BT}\sqrt{\frac{\cos^2(\Delta \varphi/2) + \zeta}{\zeta + 1}}\right).
 \end{equation}
-Again the $\delta I $ is independent of position and $\theta$ such that the total current is simply
+Also here $\delta I $ is independent of the trajectory such that the current density is uniform. The total current is
 \begin{equation}
 I_x = k_FW \frac{e \Delta_0}{2 \pi \hbar}\frac{\sin(\Delta \varphi)}{\sqrt{(\cos^2(\Delta \varphi /2 )+ \zeta)(\zeta + 1)}}\tanh\left(\frac{\Delta_0}{2k_BT}\sqrt{\frac{\cos^2(\Delta \varphi/2) + \zeta}{\zeta + 1}}\right).
 \end{equation}
-We find the high temperature critical current:
+The high temperature critical current is
 \begin{equation}
-I_{c,\zeta} = \frac{k_F W e\Delta_0^2}{4\pi \hbar k_BT}\frac{1}{\zeta + 1} = \frac{I_{c,0}}{\zeta+1}.
+I_{c,\zeta} = \frac{k_F W e\Delta_0^2}{4\pi \hbar k_BT}\frac{1}{\zeta + 1} = \frac{I_{c,0}}{\zeta+1},
 \end{equation}
-
+with $I_{c,0}$ is the critical current without barriers \eqref{Ic0-highT}. Figure \ref{fig:CurrentWithoutField} shows how the total current varies with the phase difference, $\Delta \varphi$, in the high temperature regime ($k_BT = \Delta_0$) for different barrier strengths, $\zeta$.
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=12cm,clip=true,trim=0cm 7cm 1cm 7cm]{fig/WithoutField}
-%\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
-%\hfill
-%\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
+\includegraphics[width=10cm,clip=true,trim=0cm 8cm 1.5cm 9cm]{fig/WithoutField}
 \caption{blabla}
-\label{fig:motionEarth}
+\label{fig:CurrentWithoutField}
 \end{figure}
 
-\section{ABS current with constant applied field}
+\section{ABS current with applied field}
+\label{sec:CurrentWithB}
 With no barriers, but magnetic field we find the current from the ABS energy in equation \eqref{AndreevEnergy3}:
 \begin{equation}
-    \delta I_k(\Delta \varphi) = \frac{e\Delta_0}{\hbar} \sin\left(\frac{\Delta \varphi}{2} - \frac{\gamma_k}{2}\right)\tanh\left(\frac{\Delta_0\cos\left(\frac{\Delta \varphi}{2} - \frac{\gamma_k}{2}\right)}{2k_BT}\right).
-    \label{dIwithB}
+    \delta I_k(\Delta \varphi) = \frac{e\Delta_0}{\hbar} \sin\left(\frac{\Delta \varphi}{2} - \frac{\gamma_k}{2}\right)\tanh\left(\frac{\Delta_0\cos\left(\frac{\Delta \varphi}{2} - \frac{\gamma_k}{2}\right)}{2k_BT}\right)
+\label{dIwithB}
 \end{equation}
-$\gamma_k$ will be dependent on the magnetic field, and on the trajectory of the particle. We will consider three different modulations of the magnetic field. That is constant magnetic field, and sinusoidal field along and transverse to the junction. We assume complete expulsion of the field in the superconducting region, due to the Meissner effect.
-
-\subsection{Constant field}
-\label{sec:ConstField}
-We will first consider a constant magnetic field of strength $B$:
+which in the high temperature regime ($k_BT \gtrsim \Delta_0$), can be approximated to
 \begin{equation}
-    \fet{B} = B\left[\Theta(x+L/2) - \Theta(x-L/2) \right]\hat{z}.
+    \delta I_k(\Delta \varphi) \approx \frac{e\Delta_0^2}{4\hbar k_BT} \sin\left(\Delta \varphi -\gamma_k\right).
+\label{dIwithBHighT}
 \end{equation}
-We choose the gauge of the $\fet{A}$-field as
+We notice that this expression is maximized when
+\begin{equation}
+    \gamma_k = \frac{4n-3}{2}\pi+\Delta\varphi
+\label{Maximize}
+\end{equation}
+with $n$ as an integer. The Aharonov-Bohm phase shift, $\gamma_k$, will depend on the modulation and strength of the magnetic field, and on the trajectory of the particle. We will here consider three different modulations of the magnetic field. That is a uniform magnetic field (section \ref{sec:ConstField}), sinusoidal field varying along the junction (section \ref{sec:alongJunction}) and sinusoidal field varying along the interfaces (section \ref{sec:alongInterface}). 
+\\
+\\
+The magnetic field will be expelled in the superconducting region, due to the Meissner effect. We assume the penetration depth to be short even in the high-field regime, i.e. when $l_m \lesssim L$ with with $l_m = \sqrt{\hbar/eB}$ as the magnetic length. The Lorentz effect will change the trajectories in the magnetic field into arcs of cyclotron radius $l_{\mathrm{cycl}} = \hbar k_F / eB = k_F l_m^2$. However, we assume that $k_F L$ is sufficiently large such that $l_{\mathrm{cycl}}/L = k_FL(l_m/L)^2 \gg 1$ for the fields considered and we can neglect the curvature of the trajectories. 
+
+\subsection{Uniform magnetic field}
+\label{sec:ConstField}
+We will first consider a uniform magnetic field of strength $B$:
+\begin{equation}
+    \fet{B} = B\left[\Theta(x+L/2) - \Theta(x-L/2) \right]\hat{z},
+\end{equation}
+and choose the gauge of the $\fet{A}$-field as
 \begin{equation}
     \fet{A} = -By\left[\Theta(x+L/2) - \Theta(x-L/2) \right]\hat{x}.
 \end{equation}
@@ -91,17 +113,24 @@ The Aharonov-Bohm phase shift, $\gamma(x_0,y_0,\theta_k)$, is calculated from eq
     y(x) = y_0-x_0\tan\theta_k + x\tan\theta_k.
     \label{trajectory}
 \end{equation}
-Using this in equation \eqref{gamma} we find $\gamma$:
+Using this in equation \eqref{gamma} we find the phase shift:
 \begin{equation}
-    \gamma = -\frac{2e}{\hbar}\int_L^R \fet{A}\cdot d\fet{l} = B\frac{2e}{\hbar}\int_{-L/2}^{L/2}y(x)dx = \frac{2L}{l_m^2}\left(y_0 - x_0\tan\theta_k \right)
+    \gamma = -\frac{2e}{\hbar}\int_L^R \fet{A}\cdot d\fet{l} = B\frac{2e}{\hbar}\int_{-L/2}^{L/2}y(x)dx = \frac{2L}{l_m^2}\left(y_0 - x_0\tan\theta_k \right).
 \label{gamma1}
 \end{equation}
-with $l_m = \sqrt{\hbar/eB}$ as the magnetic length.
 %If we assume $W$ to be much larger than $L$ we can ignore the boundaries along the junction, and the current will be conserved such that there will be no $x_0$ dependence. 
-We use this expression in equation \eqref{dIwithB} and \eqref{CurrentDensity} to find the current density. The result is shown in figure \ref{fig:Constant} for three different magnetic lengths. 
+This expression is used in equation \eqref{dIwithB} and \eqref{CurrentDensity} in order to find the current density. The result from numerical computation is shown in figure \ref{fig:Constant} for three different magnetic lengths revealing the appearance of a row of current vortex-antivortex pairs. From equation \eqref{Maximize} the current density is found to be maximum at $x_0=0$ (at which the phase shift is $\theta_k$-independent) and
+\begin{equation}
+    y_0 = \frac{l_m^2}{L}\left(\frac{4n-3}{4}\pi + \frac{\Delta \varphi}{2}\right).
+\end{equation}
+Hence, the vortex lattice constant (the distance between two vortices) is
+\begin{equation}
+    a_{\mathrm{vortex}} = \pi\frac{l_m^2}{L}.
+\end{equation}
+Figure \ref{fig:Constant} shows how the vortex lattice constant increases with the magnetic length. 
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=17cm]{fig/dist1}
+\includegraphics[width=15cm,clip=true,trim=10cm 4cm 10cm 0cm]{fig/Dist1}
 %\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
 %\hfill
 %\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
@@ -109,11 +138,12 @@ We use this expression in equation \eqref{dIwithB} and \eqref{CurrentDensity} to
 \label{fig:Constant}
 \end{figure}
 \\
+\\
 In order to find the total current we combine equation \eqref{TotalCurrent}, \eqref{CurrentDensity} and \eqref{dIwithB}:
 \begin{equation}
 I_x = \frac{k_F}{2\pi}\frac{e\Delta_0}{\hbar}\int_{-W/2}^{W/2}dy_0\int_{-\pi/2}^{\pi/2}d\theta_k\cos \theta_k \sin\left(\frac{\Delta \varphi}{2}-\frac{\gamma}{2}\right)\tanh\left(\frac{\Delta_0}{2k_BT}\cos\left(\frac{\Delta \varphi}{2}-\frac{\gamma}{2}\right)\right)
 \end{equation}
-which in the high temperature regime $(k_BT \gtrsim \Delta_0)$ can be simplified to
+which in the high temperature regime $(k_BT \gtrsim \Delta_0)$ is simplified to
 \begin{equation}
 I_x = \frac{I_{c,0}}{2W}\int_{-W/2}^{W/2}dy_0\int_{\pi/2}^{\pi/2} d\theta_k \cos \theta_k \sin (\Delta \varphi - \gamma ).
 \label{TotalCurrentHighT}
@@ -122,22 +152,22 @@ From equation \eqref{gamma1} we notice that $\gamma(x_0,y_0,\theta_k) = -\gamma(
 \begin{equation}
 I_x = \frac{I_{c,0}}{W}\sin(\Delta \varphi) \int_{-W/2}^{W/2}dy_0\int_0^{\pi/2} d\theta_k\cos \theta_k \cos\gamma.
 \end{equation}
-The integral over $y_0$ gives in the low field regime $(l_m \gg L)$
+The integral over $y_0$ gives
 \begin{equation}
 \int_{-W/2}^{W/2}dy_0\cos\gamma = \frac{l_m^2}{L}\sin\left(\frac{LW}{l_m^2}\right)\cos\left(\frac{2L}{l_m^2}x_0\tan\theta_k\right) \approx \frac{l_m^2}{L}\sin\left(\frac{LW}{l_m^2}\right),
 \end{equation}
-and the total current is
+where we the last equality is taken in the low field regime $(l_m \gg L)$ in order to simplify the analytical expression. The total current is thus
 \begin{equation}
 I_x = I_{c,0}\frac{\sin\left(\frac{e}{\hbar}\Phi\right)}{\frac{e}{\hbar}\Phi}\sin \Delta \varphi
 \end{equation}
-with $\Phi = BLW$ as the magnetic flux. The critical current is the well known Fraunhofer oscillations
+with $\Phi = BLW$ as the magnetic flux and we find the critical current at $\Delta \varphi = \pi/2$:
 \begin{equation}
-I_{c,\mathrm{const}} = I_{c,0} \frac{\sin\left(\frac{e}{\hbar}\Phi\right)}{\frac{e}{\hbar}\Phi}.
+I_{c,\mathrm{const}} = I_{c,0} \left|\frac{\sin\left(\frac{e}{\hbar}\Phi\right)}{\frac{e}{\hbar}\Phi}\right|
 \end{equation}
-This result is shown in figure \ref{fig:Fraunhofer}.
+which is the well known Fraunhofer oscillations. The critical current resulting from numerical calculations is shown in figure \ref{fig:Fraunhofer}.
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=12cm,clip=true,trim=3cm 8cm 3cm 8cm]{fig/Fraunhofer}
+\includegraphics[width=10cm,clip=true,trim=3cm 8cm 3cm 8cm]{fig/Critical1}
 %\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
 %\hfill
 %\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
@@ -146,15 +176,18 @@ This result is shown in figure \ref{fig:Fraunhofer}.
 \end{figure}
 \\
 \subsection{Sinusoidal field varying along the junction}
+\label{sec:alongJunction}
 We will next consider a sinusoidal magnetic field along the junction:
 \begin{equation}
     \fet{B} = B\sin\left(\frac{2\pi}{\lambda}x + \varphi\right)\left[\Theta(x+L/2) - \Theta(x-L/2) \right]\hat{z}
+\label{B4}
 \end{equation}
 with the gauge
 \begin{equation}
     \fet{A} = -By\sin\left(\frac{2\pi}{\lambda}x + \varphi\right)\left[\Theta(x+L/2) - \Theta(x-L/2) \right]\hat{x}.
+\label{A4}
 \end{equation}
-Again we find $\gamma(x_0,y_0,\theta_k)$ using equation \eqref{gamma} and integrating along the trajectory in \eqref{trajectory}:
+Again we use \eqref{gamma} and integrate along the trajectory in \eqref{trajectory} to find the Aharonov-Bohm phase shift:
 \begin{equation}
 \begin{split}
     \gamma &= \frac{2}{l_m^2}\int_{-L/2}^{L/2}y(x)\sin\left(\frac{2\pi}{\lambda} +\varphi \right) dx \\
@@ -164,14 +197,15 @@ Again we find $\gamma(x_0,y_0,\theta_k)$ using equation \eqref{gamma} and integr
 \end{equation}
 
 \subsubsection{Anti-symmetric field}
-More specifically we may take $\varphi$ to zero, yielding
+More specifically we take $\varphi$ to zero, so that the magnetic field is anti-symmetric about the $y$-axis, and the first term in \eqref{gamma2} vanishes:
 \begin{equation}
 \gamma = \frac{L^2}{l_m^2}\tan\theta_k\left[\left(\frac{\lambda}{\pi L}\right)^2\sin\left(\frac{\pi L}{\lambda}\right)-\frac{\lambda}{\pi L}\cos\left(\frac{\pi L}{\lambda}\right)\right].
+\label{gammaDist4}
 \end{equation}
-We notice how $\gamma$ now is position-independent and expect a uniform current distribution. Using this expression in equation \eqref{dIwithB} and \eqref{CurrentDensity} the current density is found. The result is shown in figure \ref{fig:Dist3a} for varying wavelengths, $\lambda$, of the external field.
+We notice how $\gamma$ now is position-independent and expect a uniform current distribution without current vortices. In figure \ref{fig:gammaDist4} the magnetic wavelength dependency of $\gamma$ is shown. For certain wavelengths, $\lambda$, $\gamma$ will be zero regardless of the field strength or position and we expect the current to be unaffected by the magnetic field. Using the expression for $\gamma$ \eqref{gammaDist4} in equation \eqref{dIwithB} and \eqref{CurrentDensity} the current density is found numerically. The result is shown in figure \ref{fig:Dist4} for varying wavelengths, $\lambda$, of the external field.
 \\
 \\
-We find the total current in the high temperature regime as we did in the previous section. As $\gamma$ \eqref{gamma2} is indepenent of $y_0$, equation \eqref{TotalCurrentHighT} yields
+We find the total current in the high temperature regime as we did for the uniform field in section \ref{sec:ConstField}. As $\gamma$ \eqref{gamma2} is independent of $y_0$, equation \eqref{TotalCurrentHighT} yields
 \begin{equation}
 I = \frac{I_{c,0}}{2}\int_{-\pi/2}^{\pi/2}d\theta_k\cos\theta_k\sin(\Delta \varphi - \gamma).
 \end{equation}
@@ -191,33 +225,56 @@ Hence, the critical current is
 \begin{equation}
     I_c = I_{c,0}\frac{L^2}{l_m^2}\left|f(\lambda)\right|K_1\left(\frac{L^2}{l_m^2}\left|f(\lambda)\right|\right).
 \end{equation}
-This result is shown in figure \ref{fig:Dist3c} for different wavelengths, $\lambda$, and varying magnetic field strength,$B$.
+The wavelengths $\lambda$ make $f(\lambda)$ go to zero, will give $I_c = I_{c,0}$, regardless of the magnetic field strength. In figure \ref{fig:Critical4} the critical current obtained from numerical computation is shown for different wavelengths, $\lambda$, and varying magnetic field strength,$B$. We notice that for some wavelengths, e.g. when $\lambda \approx 0.7 L$, the critical current $I_c$ maintains constant when the magnetic field strength increases.
+%\begin{comment}
 \begin{figure}[hhh]
 \centering
 %\includegraphics[width=10cm]{fig/1_Max3_l_0-3_phi_0}
-\subfigure[]{\includegraphics[width=5cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/2Gamma3_l_0-3_phi_0}\label{fig:Dist3a}}
+\subfigure[]{\includegraphics[width=5cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Gamma4}\label{fig:Gamma4}}
 \hfill
-\subfigure[]{\includegraphics[width=5cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/2Dist3_l_0-3_phi_0}\label{fig:Dist3b}}
+\subfigure[]{\includegraphics[width=5cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Dist4}\label{fig:Dist4}}
 \hfill
-\subfigure[]{\includegraphics[width=5cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/critical_phi_0}\label{fig:Dist3c}}
+\subfigure[]{\includegraphics[width=6cm,clip=true,trim=2cm 9.2cm 4cm 9cm ]{fig/Critical4}\label{fig:Critical4}}
 \caption{blabla}
 \label{fig:motionEarth}
 \end{figure}
-
-\subsubsection{Symmetric field}
-With $\varphi = \pi/2$ in equation \eqref{gamma2} we get
-\begin{equation}
-\gamma= \frac{2\lambda}{\pi l_m^2}\left[y_0 - x_0\tan\theta_k\right]\sin\left(\frac{\pi L}{\lambda}\right) = \gamma_{\mathrm{const}}\frac{\sin\left(\pi L/\lambda\right)}{\pi L/\lambda}
-\end{equation}
-where $\gamma_{\mathrm{const}}$ is the Aharonov-Bohm phase shift in a constant magnetic field as given in equation \eqref{gamma1}. We use this expression in equation \eqref{dIwithB} and \eqref{CurrentDensity}, and find the current density numerically. The result is shown in figure \ref{fig:Dist2} for three different wavelengths. 
+%\end{comment}
+\begin{comment}
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=17cm,clip=true,trim=5cm 4.5cm 4.4cm 3cm]{fig/dist3_pi-2}
+%\includegraphics[width=10cm]{fig/1_Max3_l_0-3_phi_0}
+\subfigure[]{\includegraphics[width=7cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Gamma4}\label{fig:Gamma4}}
+\hfill
+\subfigure[]{\includegraphics[width=7cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Dist4}\label{fig:Dist4}}
+\hfill
+\subfigure[]{\includegraphics[width=9cm,clip=true,trim=2cm 9.2cm 3cm 9cm ]{fig/Critical4}\label{fig:Critical4}}
+\caption{blabla}
+\label{fig:motionEarth}
+\end{figure}
+\end{comment}
+
+\subsubsection{Symmetric field}
+Taking $\varphi = \pi/2$ in \eqref{B4} the magnetic field becomes symmetric about the $y$-axis and the second term in equation \eqref{gamma2} is zero such that the phase shift is
+\begin{equation}
+\gamma= \frac{2\lambda}{\pi l_m^2}\left[y_0 - x_0\tan\theta_k\right]\sin\left(\frac{\pi L}{\lambda}\right) = \gamma_{\mathrm{uni}}\frac{\sin\left(\pi L/\lambda\right)}{\pi L/\lambda}
+\label{Gamma5}
+\end{equation}
+where $\gamma_{\mathrm{uni}}$ is the Aharonov-Bohm phase shift in the uniform magnetic field as given in equation \eqref{gamma1}. As this expression is proportional to the phase shift for uniform field we expect appearance of current vortices, but with a vortex lattice constant dependent on the wavelength of the magnetic field: 
+\begin{equation}
+    a_{\mathrm{vortex}} = \pi\frac{l_m^2}{L}\frac{\pi L/\lambda}{\sin(\pi L/\lambda)}.
+\end{equation}
+Hence, the distance between the vortices can be controlled not only by changing the magnetic field strength, but also by changing the wavelength of the symmetric field. For some wavelengths, $\lambda = L/n$, with $n$ as an non-zero integer, we notice that $a_{\mathrm{vortex}} \rightarrow \infty$ and $\gamma \rightarrow 0$, such that we expect the vortices to vanish and the current to be unaffected by the magnetic field.
+\\
+\\
+We can use $\gamma$ \eqref{Gamma5} in equation \eqref{dIwithB} and \eqref{CurrentDensity} to calculate the current density numerically. The result is shown in figure \ref{fig:Dist5} for three different wavelengths. We see how the distance between the vortices is changed when the wavelength of the magnetic field is changed, and theat for some wavelengths, e.g. $\lambda = L/2$, the vortices vanish. 
+\begin{figure}[hhh]
+\centering
+\includegraphics[width=17cm,clip=true,trim=5cm 3cm 4.4cm 2cm]{fig/Dist5}
 %\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
 %\hfill
 %\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
 \caption{blabla}
-\label{fig:Dist2}
+\label{fig:Dist5}
 \end{figure}
 \\
 \\
@@ -227,16 +284,16 @@ I_x = I_{c,0}\sin(\Delta \varphi)\frac{\sin\left(\frac{LW}{l_m^2}\frac{\sin(\pi 
 \end{equation}
 where $\Phi$ is the magnetic flux:
 \begin{equation}
-    \Phi = \int \fet{B}\cdot d\fet{A} = \int \int B\cos\left(\frac{2\pi}{\lambda}x\right)dxdy = \Phi_{\mathrm{const}}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda},
+    \Phi = \int \fet{B}\cdot d\fet{A} = \int \int B\cos\left(\frac{2\pi}{\lambda}x\right)dxdy = \Phi_{\mathrm{uni}}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda},
 \end{equation}
-with $\Phi_{\mathrm{const}} = BWL$ as the magnetic flux in a constant field. In terms of magnetic flux the total current is the same as obtained for constant field, with critical current
+with $\Phi_{\mathrm{uni}} = BWL$ as the magnetic flux in the uniform field. In terms of magnetic flux this expression is identical to the total current in the uniform field. However, the flux, and consequently the total and critical current, will be dependent on the wavelength. The high temperature critcal current will be given as 
 \begin{equation}
-    I_c = I_{c,0}\frac{\sin(\frac{e}{\hbar}\Phi)}{\frac{e}{\hbar}\Phi}.
+    I_c = I_{c,0}\left|\frac{\sin\left(\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}\right)}{\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}}\right|.
 \end{equation}
-However, the flux, and hence the critical current, is dependent on the wavelength, $\lambda$. In figure \ref{fig:critical_phi_pi-2} the critical current for three different wavelengths is shown for varying field strength, $B$. 
+In figure \ref{fig:Critical5} the critical current obtained from numerical computation is shown for different wavelengths, $\lambda$, and varying magnetic field strength, $B$. We recognize the Fraunhofer pattern as we had for the uniform field, but the decay can be controlled by changing the wavelength, $\lambda$, and for some wavelengths, e.g. $\lambda = L/2$, the critical current maintains constant regardless of the field strength.
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=8cm,clip=true,trim=3cm 8cm 4cm 9cm]{fig/critical_phi_pi-2}
+\includegraphics[width=8cm,clip=true,trim=2cm 8cm 3cm 9cm]{fig/Critical5}
 %\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
 %\hfill
 %\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
@@ -245,7 +302,8 @@ However, the flux, and hence the critical current, is dependent on the wavelengt
 \end{figure}
 
 \subsection{Sinusoidal field varying along the interfaces}
-Finally we will consider a sinusoidal magnetic field varying along the interfaces:
+\label{sec:alongInterface}
+Instead of varying the field along the junction we will now consider a sinusoidal magnetic field varying along the interfaces:
 \begin{equation}
     \fet{B} = B\sin\left(\frac{2\pi}{\lambda}y + \varphi\right)\left[\Theta(x+L/2) - \Theta(x-L/2) \right]\hat{z}
 \label{Binterface}
@@ -261,27 +319,36 @@ This time we find $\gamma$ to be
     %\frac{2}{l_m^2}\frac{\lambda}{2\pi}\int \cos\left(\frac{2\pi}{\lambda}y(x) + \varphi \right) dx =
     \frac{\lambda}{\pi l_m^2 \tan\theta_k}\int_{y_L}^{y_R} \cos\left(\frac{2\pi}{\lambda}y + \varphi \right) dy
     \\
-    &= -\frac{\lambda^2}{l_m^2\pi^2\tan\theta_k}\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right] + \varphi\right).
+    &= -\frac{\lambda^2}{l_m^2\pi^2\tan\theta_k}\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right] + \varphi\right),
 \end{split}
 \end{equation}
+where $y_L$ is the $y$-component of the starting position of the trajectory \eqref{trajectory} in the left superconductor, while $y_R$ is the $y$-component of the end position in the right superconductor. As we did in the previous section we will also here look at the anti-symmetric and symmetric fields taking $\varphi$ to $0$ and $\pi/2$, respectively, starting with the anti-symmetric field.
 
 \subsubsection{Anti-symmetric field}
-With $\varphi = 0$ the expression reads
+In the anti-symmetric field, i.e. when $\varphi = 0$, the phase shift is
 \begin{equation}
-    \gamma = -\frac{L^2}{l_m^2}\frac{\lambda}{\pi L }\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right).
+\begin{split}
+    \gamma &= -\frac{L^2}{l_m^2}\frac{\lambda}{\pi L }\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)\\
+    &=-\gamma_{\mathrm{uni}}\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]}\\
+\end{split}
 \end{equation}
-The current density is found numerically from equation \eqref{dIwithB} and \eqref{CurrentDensity}. The result is shown in figure \ref{fig:dist2_0} for five different wavelengths. 
+where $\gamma_{\mathrm{uni}}$ is the phase shift in the uniform field. In order to compare this expression with the uniform field we look at the current density at $\theta_k = 0$ and $x_0 = 0$ were the phase shift becomes
+\begin{equation}
+    \gamma(x_0=0, y_0, \theta_k = 0) = -\gamma_{\mathrm{uni}} \frac{\cos\left(\frac{2\pi}{\lambda}y_0\right)}{\frac{2\pi}{\lambda}y_0}.
+\end{equation}
+The phase shift has now an additional factor which will envelope the vortex pattern from the uniform field with a periodicity $\lambda$. In equation \eqref{dIwithBHighT} we can distinguish between to specific cases, namely with the phase difference, $\Delta \varphi = n\pi$ and $\Delta \varphi = (2n+1)\pi/2$, in which the the current density along the $y$-axis will be an even or odd function of $\gamma$, respectively. When the current density is an even function of $\gamma$ we expect the vortex rows to be separated by a row lattice constant $a_{\mathrm{rows,even}} = \lambda/2$. When the current density is an odd function of $\gamma$ we expect the vortex-antivortex rows for the uniform field to be repeated as rows and anti-rows of vortices with row lattice constant $a_{\mathrm{row}} = \lambda$. Moreover, as the factor $\cos(2\pi y_0/\lambda)/(2\pi y_0/\lambda)$ is an odd function of $y_0$ we expect the vortex rows to be anti-symmetric about the $x$-axis. That is the pattern is such that if a row is placed at $y_0$ then there is an anti-row placed at $-y_0$. 
+\\
+\\
+The current density is found numerically from equation \eqref{dIwithB} and \eqref{CurrentDensity} and the result is shown in figure \ref{fig:dist2_0} for five different wavelengths. We observe what was predicted, namely a repeated pattern of vortex- anti-vortex-rows with distance $\lambda$ between two rows.
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=17cm,clip=true,trim = 5.5cm 3.5cm 5cm 5cm]{fig/dist2_0}
-%\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
-%\hfill
-%\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
-\caption{blabla}
+\includegraphics[width=17cm,clip=true,trim = 0cm 1.5cm 0cm 1cm]{fig/dist2_0}
+\caption{blabla.. Planen her å gjøre figurene litt finere sånn som for konstant felt. Og vise to rader med bilder, en med $\Delta \varphi = 0$ og en med $\Delta \varphi = \pi/2$}
 \label{fig:dist2_0}
 \end{figure}
 \\
-From equation \eqref{dIwithB} and \eqref{TotalCurrent}, and using that $\gamma(x_0,y_0,\theta_k) = \gamma(x_0,-y_0,-\theta_k)$ we find the total current in the high temperature regime to be
+\begin{comment}
+We find the total current from equation \eqref{dIwithB} and \eqref{TotalCurrent}, and using that $\gamma(x_0,y_0,\theta_k) = \gamma(x_0,-y_0,-\theta_k)$. In the high temperature regime this gives
 \begin{equation}
 I = I_{c,0}\left(J_1\sin\Delta\varphi  - J_2\cos\Delta\varphi\right)
 \end{equation}
@@ -296,43 +363,44 @@ The second integral, $J_2$, is zero (BUT WHY?), and hence the total and critical
 \begin{equation}
     I_c = \frac{I_{c,0}}{W}\int_{-W/2}^{W/2}dy_0\int_0^{\pi/2}d\theta_k\cos\theta_k\cos\gamma. \\
 \end{equation}
-\begin{comment}
 The critical current is found at $\Delta\varphi = -\arctan(J_1 / J_2)$:
 \begin{equation}
     I_c = I_{c,0}\sqrt{J_1^2+J_2^2}.
 \end{equation}
 \end{comment}
-As the expression for $\gamma$ is quite complicated we can not calculate the integral analytically. However, the critical current is found numerically and the result is shown in figure \ref{fig:critical_Dist2_phi_0}.
+As the expression for $\gamma$ is quite complicated we can not calculate the total current analytically, even in the high temperature regime. However, the critical current is found numerically and the result is shown in figure \ref{fig:Critical2}. SHOULD COMMENT ON THIS. BUT WHAT TO SAY?
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=8cm,clip=true,trim=3cm 8cm 4cm 9cm]{fig/critical_Dist2_phi_0}
-%\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
-%\hfill
-%\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
+\includegraphics[width=8cm,clip=true,trim=3cm 8cm 4cm 9cm]{fig/Critical2}
 \caption{blabla}
-\label{fig:critical_Dist2_phi_0}
+\label{fig:Critical2}
 \end{figure}
 
 
 \subsubsection{Symmetric field}
-We $\varphi =\pi/2$ in equation \eqref{Binterface} to obtain a symmetric field and equation \eqref{gamma3} gives
+We now let $\varphi =\pi/2$ such that the magnetic field is symmetric about the $x$-axis. Equation \eqref{gamma3} will in this field give the phase shift
 \begin{equation}
 \begin{split}
     \gamma &= -\frac{\lambda^2}{l_m^2\pi^2\tan\theta_k}\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)\sin\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right). 
     \\
-    &= -\gamma_{\mathrm{const}}\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\sin\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]}.
+    &= -\gamma_{\mathrm{uni}}\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\sin\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]}.
 \end{split}
 \end{equation}
-The current density is found numerically and the result is shown in figure \ref{fig:dist2_pi-2}.
+At $x_0=0$ and $\theta_k = 0$ we get
+\begin{equation}
+    \gamma(x_0=0,y_0,\theta_k=0) = -\gamma_{\mathrm{uni}}(y_0)\frac{\sin\left(\frac{2\pi}{\lambda}y_0\right)}{\frac{2\pi}{\lambda}y_0} = -\gamma_{\mathrm{uni}}(y_0-\lambda/4)\frac{\cos\left(\frac{2\pi}{\lambda}\left(y_0-\frac{\lambda}{4}\right)\right)}{\frac{2\pi}{\lambda}\left(y_0-\frac{\lambda}{4}\right)}
+\end{equation}
+This is on the same form as for the anti-symmetric field, but with a shift by $\lambda/4$ of the position of each vortex row. Unlike the anti-symmetric field, the factor $\sin(2\pi y_0/\lambda)/(2\pi y_0 /\lambda)$, which is multiplied with $\gamma_{\mathrm{uni}}$, is an even function of $y_0$, so that we expect the rows and anti-rows to be structured symmetrically about the $x$-axis. This is confirmed numerically and the result is shown in figure \ref{fig:dist2_pi-2}. Since the symmetric and anti-symmetric field along the interface only differ by a shift of the center of the vortex rows along the $y$-axis, we expect the total current to be equal in the two cases, when $W \gg L$. This was also confirmed numerically, and the critical current will be as shown in figure \ref{fig:Critical2}.
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=17cm]{fig/dist2pi-2}
+\includegraphics[width=17cm,clip=true,trim = 1.4cm 1.5cm 0.6cm 1cm]{fig/dist2_pi-2}
 %\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
 %\hfill
 %\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
-\caption{blabla}
+\caption{blabla.. Planen her å gjøre figurene litt finere sånn som for konstant felt. Og vise to rader med bilder, en med $\Delta \varphi = 0$ og en med $\Delta \varphi = \pi/2$}
 \label{fig:dist2_pi-2}
 \end{figure}
+\begin{comment}
 From equation \eqref{dIwithB} and \eqref{CurrentDensity}, and using that $\gamma(x_0,y_0,\theta_k) = -\gamma(x_0,-y_0,-\theta_k)$ one find the total current to be given as
 \begin{equation}
     I = \frac{I_{c,0}}{W}\sin\Delta\varphi\int_{-W/2}^{W/2}dy_0\int_0^{\pi/2}d\theta\cos\theta_k\cos\gamma
@@ -352,3 +420,4 @@ Again we can only solve the integral numerically and the result of the critical 
 \caption{blabla}
 \label{fig:critical_dist2_pi-2}
 \end{figure}
+\end{comment}

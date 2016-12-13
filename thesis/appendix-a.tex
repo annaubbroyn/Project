@@ -21,3 +21,67 @@
     \sigma
     \label{pauli}
 \end{equation}
+
+
+\begin{comment}
+
+\section{System of equations in SNS-junction with barriers at interface}
+\begin{equation}
+    M = \begin{pmatrix}
+    M_{11} & M_{12} \\
+    M_{21} & M_{22}
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+\begin{split}
+    M_{11} &= 
+    \begin{pmatrix}
+    e^{i(\eta+\varphi_L)} & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+    0 & e^{i(\eta+\varphi_L)} & 0 & -1 & 0 & 0 & 0 & 0\\
+    0 & -1 & 0 & e^{i(\eta-\varphi_L)} & 0 & 0 & 0 & 0\\
+    1 & 0 & e^{i(\eta+\varphi_R)} & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & e^{i(\eta+\varphi_R)} & 0 & 1 & 0\\
+    0 & 0 & 0 & 0 & 0 & e^{i(\eta+\varphi_R)} & 0 & -1\\
+    0 & 0 & 0 & 0 & 0 & -1 & 0 & e^{i(\eta-\varphi_R)}\\
+    0 & 0 & 0 & 0 & 1 & 0 & e^{i(\eta-\varphi_R)} & 0
+    \end{pmatrix}\\
+    M_{12} &= 
+    \begin{pmatrix}
+    -1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & -1 & -1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & -1 & -1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & -1 & -1 \\
+    -e^{ikL} & -e^{-ikl} & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & -e^{ikL} & -e^{-ikl} & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & -e^{ikL} & -e^{-ikl} & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & -e^{ikL} & -e^{-ikl}
+    \end{pmatrix}\\
+    M_{21} &=
+    \begin{pmatrix}
+    (iZ_L+1)e^{i(\eta)+\varphi_L)} & 0 & iZ_L-1 & 0& 0 & 0 & 0 & 0\\
+    0 & (iZ_L+1)e^{i(\eta)+\varphi_L)} & 0 & -(iZ_L-1)& 0 & 0 & 0 & 0\\
+    0 & -(iZ_L+1) & 0 & (iZ_L-1)e^{i(\eta)-\varphi_L)}& 0 & 0 & 0 & 0\\
+    iZ_L+1 & 0 & (iZ_L-1)e^{i(\eta)-\varphi_L)} & 0& 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & (iZ_R+1)e^{i(\eta)+\varphi_R)} & 0 & iZ_R-1 & 0\\
+    0 & 0 & 0 & 0 & 0 & (iZ_R+1)e^{i(\eta)+\varphi_R)} & 0 & -(iZ_R-1)\\
+    0 & 0 & 0 & 0 & 0 & -(iZ_R+1) & 0 & (iZ_R-1)e^{i(\eta)-\varphi_R)}\\
+    0 & 0 & 0 & 0 &iZ_R+1 & 0 & (iZ_R-1)e^{i(\eta)-\varphi_R)} & 0\\
+    \end{pmatrix}
+\end{split}
+\end{equation}
+
+\begin{equation}
+    M = 
+\begin{pmatrix}
+e^{i(\eta+\varphi_L)} & 0 & 1 & 0 & 0 & 0 & 0 & 0 & -1 & -1 \\%& 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & e^{i(\eta+\varphi_L)} & 0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\%& -1 & -1 & 0 & 0 & 0 & 0 \\
+0 & -1 & 0 & e^{i(\eta-\varphi_L)} & 0 & 0 & 0 & 0 & 0 & 0 \\%& 0 & 0 & -1 & -1 & 0 & 0 \\
+1 & 0 & e^{i(\eta-\varphi_L)} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\%& 0 & 0 & 0 & 0 & -1 & -1 \\
+0 & 0 & 0 & 0 & e^{i(\eta+\varphi_R)} & 0 & 1 & 0 & -e^{ikL} & -e^{-ikl} \\%& 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & e^{i(\eta+\varphi_R)} & 0 & -1 & 0 & 0 \\%& -e^{ikL} & -e^{-ikl} & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & -1 & 0 & e^{i(\eta-\varphi_R)} & 0 & 0 \\%& 0 & 0 & -e^{ikL} & -e^{-ikl} & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & e^{i(\eta-\varphi_R)} & 0  & 0 & 0 \\%& 0 & 0 & 0 & 0 & -e^{ikL} & -e^{-ikl}
+\end{pmatrix}
+\end{equation}
+
+\end{comment}
