@@ -45,14 +45,15 @@ which we notice is independent of the trajectory of the particle. From equation 
 \end{equation}
 In the high temperature regime $(k_BT \gtrsim \Delta_0)$ this can be approximated to
 \begin{equation}
-    I_x = k_F W\frac{e\Delta_0}{\pi \hbar} \sin\left(\frac{\Delta\varphi}{2}\right)\frac{\Delta_0\cos(\Delta\varphi/2)}{2k_BT} =\frac{ k_F W e\Delta_0^2}{4\pi \hbar k_BT}\sin \Delta \varphi
+    I_x = k_F W\frac{e\Delta_0}{\pi \hbar} \sin\left(\frac{\Delta\varphi}{2}\right)\frac{\Delta_0\cos(\Delta\varphi/2)}{2k_BT} = I_{c,0}\sin \Delta \varphi
+\label{WithoutField}
 \end{equation}
-and the high temperature critical current is
+with 
 \begin{equation}
-    I_{c,0} = \frac{k_F W e\Delta_0^2}{4\pi \hbar k_BT}.
+    I_{c,0} = \frac{k_F W e\Delta_0^2}{4\pi \hbar k_BT}
 \label{Ic0-highT}
 \end{equation}
-These results are well known !!!CITE!!! and will be used for comparison in the preceding sections. 
+as the high temperature critical current. These results are well known !!!CITE!!! and will be used for comparison in the preceding sections. 
 
 \section{ABS current with barriers}
 \label{sec:CurrentWithBarriers}
@@ -127,7 +128,7 @@ Hence, the vortex lattice constant (the distance between two vortices) is
 \begin{equation}
     a_{\mathrm{vortex}} = \pi\frac{l_m^2}{L}.
 \end{equation}
-Figure \ref{fig:Constant} shows how the vortex lattice constant increases with the magnetic length. 
+Figure \ref{fig:Constant} shows how the vortex lattice constant increases with the magnetic length. In the resutl we have tken the phase difference to be $\Delta \varphi = \pi/2$, however, the pattern looks identical for any $\Delta \varphi$.
 \begin{figure}[hhh]
 \centering
 \includegraphics[width=15cm,clip=true,trim=10cm 4cm 10cm 0cm]{fig/Dist1}
@@ -196,65 +197,9 @@ Again we use \eqref{gamma} and integrate along the trajectory in \eqref{trajecto
 \label{gamma2}
 \end{equation}
 
-\subsubsection{Anti-symmetric field}
-More specifically we take $\varphi$ to zero, so that the magnetic field is anti-symmetric about the $y$-axis, and the first term in \eqref{gamma2} vanishes:
-\begin{equation}
-\gamma = \frac{L^2}{l_m^2}\tan\theta_k\left[\left(\frac{\lambda}{\pi L}\right)^2\sin\left(\frac{\pi L}{\lambda}\right)-\frac{\lambda}{\pi L}\cos\left(\frac{\pi L}{\lambda}\right)\right].
-\label{gammaDist4}
-\end{equation}
-We notice how $\gamma$ now is position-independent and expect a uniform current distribution without current vortices. In figure \ref{fig:gammaDist4} the magnetic wavelength dependency of $\gamma$ is shown. For certain wavelengths, $\lambda$, $\gamma$ will be zero regardless of the field strength or position and we expect the current to be unaffected by the magnetic field. Using the expression for $\gamma$ \eqref{gammaDist4} in equation \eqref{dIwithB} and \eqref{CurrentDensity} the current density is found numerically. The result is shown in figure \ref{fig:Dist4} for varying wavelengths, $\lambda$, of the external field.
-\\
-\\
-We find the total current in the high temperature regime as we did for the uniform field in section \ref{sec:ConstField}. As $\gamma$ \eqref{gamma2} is independent of $y_0$, equation \eqref{TotalCurrentHighT} yields
-\begin{equation}
-I = \frac{I_{c,0}}{2}\int_{-\pi/2}^{\pi/2}d\theta_k\cos\theta_k\sin(\Delta \varphi - \gamma).
-\end{equation}
-Using that $\gamma(\theta_k) = -\gamma(-\theta_k)$ this can be rewritten to
-\begin{equation}
-I = I_{c,0}\sin\Delta\varphi\int_0^{\pi/2}d\theta_k\cos\theta_k\cos\gamma.
-\end{equation}
-After inserting for $\gamma$ and integrating over $\theta_k$ we obtain the total current:
-\begin{equation}
-I = I_{c,0}\sin\Delta\varphi\frac{L^2}{l_m^2}\left|f(\lambda)\right|K_1\left(\frac{L^2}{l_m^2}\left|f(\lambda)\right|\right)
-\end{equation}
-where $K_1(z)$ is the modified Bessel function of second kind and we have defined
-\begin{equation}
-f(\lambda) \equiv \left(\frac{\lambda}{\pi L}\right)^2\sin\left(\frac{\pi L}{\lambda}\right)-\frac{\lambda}{\pi L}\cos\left(\frac{\pi L}{\lambda}\right).
-\end{equation}
-Hence, the critical current is
-\begin{equation}
-    I_c = I_{c,0}\frac{L^2}{l_m^2}\left|f(\lambda)\right|K_1\left(\frac{L^2}{l_m^2}\left|f(\lambda)\right|\right).
-\end{equation}
-The wavelengths $\lambda$ make $f(\lambda)$ go to zero, will give $I_c = I_{c,0}$, regardless of the magnetic field strength. In figure \ref{fig:Critical4} the critical current obtained from numerical computation is shown for different wavelengths, $\lambda$, and varying magnetic field strength,$B$. We notice that for some wavelengths, e.g. when $\lambda \approx 0.7 L$, the critical current $I_c$ maintains constant when the magnetic field strength increases.
-%\begin{comment}
-\begin{figure}[hhh]
-\centering
-%\includegraphics[width=10cm]{fig/1_Max3_l_0-3_phi_0}
-\subfigure[]{\includegraphics[width=5cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Gamma4}\label{fig:Gamma4}}
-\hfill
-\subfigure[]{\includegraphics[width=5cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Dist4}\label{fig:Dist4}}
-\hfill
-\subfigure[]{\includegraphics[width=6cm,clip=true,trim=2cm 9.2cm 4cm 9cm ]{fig/Critical4}\label{fig:Critical4}}
-\caption{blabla}
-\label{fig:motionEarth}
-\end{figure}
-%\end{comment}
-\begin{comment}
-\begin{figure}[hhh]
-\centering
-%\includegraphics[width=10cm]{fig/1_Max3_l_0-3_phi_0}
-\subfigure[]{\includegraphics[width=7cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Gamma4}\label{fig:Gamma4}}
-\hfill
-\subfigure[]{\includegraphics[width=7cm,clip=true,trim=3cm 8cm 4cm 9cm ]{fig/Dist4}\label{fig:Dist4}}
-\hfill
-\subfigure[]{\includegraphics[width=9cm,clip=true,trim=2cm 9.2cm 3cm 9cm ]{fig/Critical4}\label{fig:Critical4}}
-\caption{blabla}
-\label{fig:motionEarth}
-\end{figure}
-\end{comment}
 
 \subsubsection{Symmetric field}
-Taking $\varphi = \pi/2$ in \eqref{B4} the magnetic field becomes symmetric about the $y$-axis and the second term in equation \eqref{gamma2} is zero such that the phase shift is
+More specifically we let $\varphi = \pi/2$ in \eqref{B4} so that the the magnetic field becomes symmetric about the $y$-axis and the second term in equation \eqref{gamma2} is zero such that the phase shift is
 \begin{equation}
 \gamma= \frac{2\lambda}{\pi l_m^2}\left[y_0 - x_0\tan\theta_k\right]\sin\left(\frac{\pi L}{\lambda}\right) = \gamma_{\mathrm{uni}}\frac{\sin\left(\pi L/\lambda\right)}{\pi L/\lambda}
 \label{Gamma5}
@@ -263,10 +208,10 @@ where $\gamma_{\mathrm{uni}}$ is the Aharonov-Bohm phase shift in the uniform ma
 \begin{equation}
     a_{\mathrm{vortex}} = \pi\frac{l_m^2}{L}\frac{\pi L/\lambda}{\sin(\pi L/\lambda)}.
 \end{equation}
-Hence, the distance between the vortices can be controlled not only by changing the magnetic field strength, but also by changing the wavelength of the symmetric field. For some wavelengths, $\lambda = L/n$, with $n$ as an non-zero integer, we notice that $a_{\mathrm{vortex}} \rightarrow \infty$ and $\gamma \rightarrow 0$, such that we expect the vortices to vanish and the current to be unaffected by the magnetic field.
+Hence, the distance between the vortices can be controlled not only by changing the magnetic field strength, but also by changing the wavelength of the symmetric field. For wavelengths $\lambda = L/n$, with $n$ as an non-zero integer, we notice that $a_{\mathrm{vortex}} \rightarrow \infty$ and $\gamma \rightarrow 0$, such that we expect the vortices to vanish and the current to be unaffected by the magnetic field.
 \\
 \\
-We can use $\gamma$ \eqref{Gamma5} in equation \eqref{dIwithB} and \eqref{CurrentDensity} to calculate the current density numerically. The result is shown in figure \ref{fig:Dist5} for three different wavelengths. We see how the distance between the vortices is changed when the wavelength of the magnetic field is changed, and theat for some wavelengths, e.g. $\lambda = L/2$, the vortices vanish. 
+We can use $\gamma$ \eqref{Gamma5} in equation \eqref{dIwithB} and \eqref{CurrentDensity} to calculate the current density numerically. The result is shown in figure \ref{fig:Dist5} for three different wavelengths. We see how the distance between the vortices is changed when the wavelength of the magnetic field is changed, and theat for some wavelengths, e.g. $\lambda = L/2$, the vortices vanish. The fact that the supercurrent survives for arbitrarily large field strengths, $B$, as long as the spacial modulation wavelengths satisfy $\lambda = L/n$ is remarkable and is one of the key findings in this thesis.
 \begin{figure}[hhh]
 \centering
 \includegraphics[width=17cm,clip=true,trim=5cm 3cm 4.4cm 2cm]{fig/Dist5}
@@ -280,17 +225,21 @@ We can use $\gamma$ \eqref{Gamma5} in equation \eqref{dIwithB} and \eqref{Curren
 \\
 The total current is found in the same manner as in section  \ref{sec:ConstField}, giving
 \begin{equation}
-I_x = I_{c,0}\sin(\Delta \varphi)\frac{\sin\left(\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}\right)}{\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}} = I_{c,0}\sin\Delta\varphi\frac{\sin(\frac{e}{\hbar}\Phi)}{\frac{e}{\hbar}\Phi}
+I_x = 
+%I_{c,0}\sin(\Delta \varphi)\frac{\sin\left(\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}\right)}{\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}} =
+I_{c,0}\sin\Delta\varphi\frac{\sin(\frac{e}{\hbar}\Phi)}{\frac{e}{\hbar}\Phi}
 \end{equation}
 where $\Phi$ is the magnetic flux:
 \begin{equation}
-    \Phi = \int \fet{B}\cdot d\fet{A} = \int \int B\cos\left(\frac{2\pi}{\lambda}x\right)dxdy = \Phi_{\mathrm{uni}}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda},
+    \Phi = \int \fet{B}\cdot d\fet{A} = 
+    %\int \int B\cos\left(\frac{2\pi}{\lambda}x\right)dxdy = 
+    \Phi_{\mathrm{uni}}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda},
 \end{equation}
 with $\Phi_{\mathrm{uni}} = BWL$ as the magnetic flux in the uniform field. In terms of magnetic flux this expression is identical to the total current in the uniform field. However, the flux, and consequently the total and critical current, will be dependent on the wavelength. The high temperature critcal current will be given as 
 \begin{equation}
     I_c = I_{c,0}\left|\frac{\sin\left(\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}\right)}{\frac{LW}{l_m^2}\frac{\sin(\pi L/\lambda)}{\pi L/\lambda}}\right|.
 \end{equation}
-In figure \ref{fig:Critical5} the critical current obtained from numerical computation is shown for different wavelengths, $\lambda$, and varying magnetic field strength, $B$. We recognize the Fraunhofer pattern as we had for the uniform field, but the decay can be controlled by changing the wavelength, $\lambda$, and for some wavelengths, e.g. $\lambda = L/2$, the critical current maintains constant regardless of the field strength.
+In figure \ref{fig:Critical5} the critical current obtained from numerical computation is shown for different wavelengths, $\lambda$, and varying magnetic field strength, $B$. We recognize the Fraunhofer pattern as we had for the uniform field, but the decay can be controlled by changing the wavelength, $\lambda$, and for some wavelengths, e.g. $\lambda = L/2$, the critical current maintains constant regardless of the field strength. We propose that this can be understood as an interference phenomenon where the phase-shift picked up by the electrons and holes comprising the ABS level are completely cancelled out due to the specific magnetic field profile.
 \begin{figure}[hhh]
 \centering
 \includegraphics[width=8cm,clip=true,trim=2cm 8cm 3cm 9cm]{fig/Critical5}
@@ -298,8 +247,50 @@ In figure \ref{fig:Critical5} the critical current obtained from numerical compu
 %\hfill
 %\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
 \caption{blabla}
-\label{fig:critical_phi_pi-2}
+\label{fig:Critical5}
 \end{figure}
+
+
+\subsubsection{Anti-symmetric field}
+Taking $\varphi$ to zero in \eqref{B4} the magnetic field becomes anti-symmetric about the $y$-axis, and the first term in \eqref{gamma2} vanishes:
+\begin{equation}
+\gamma = \frac{L^2}{l_m^2}\tan\theta_k\left[\left(\frac{\lambda}{\pi L}\right)^2\sin\left(\frac{\pi L}{\lambda}\right)-\frac{\lambda}{\pi L}\cos\left(\frac{\pi L}{\lambda}\right)\right].
+\label{gammaDist4}
+\end{equation}
+We notice how $\gamma$ now is position-independent and expect a uniform current distribution without current vortices. The magnetic wavelength dependency of $\gamma$ is shown in figure \ref{fig:Gamma4}. For certain wavelengths, $\lambda$, $\gamma$ will be zero regardless of the field strength or position and we expect the current to be unaffected by the magnetic field. Using the expression for $\gamma$ \eqref{gammaDist4} in equation \eqref{dIwithB} and \eqref{CurrentDensity} the current density is found numerically and the result is shown in figure \ref{fig:Dist4} for varying wavelengths, $\lambda$, of the external field.
+\begin{figure}[hhh]
+\centering
+%\includegraphics[width=10cm]{fig/1_Max3_l_0-3_phi_0}
+\subfigure[]{\includegraphics[width=8cm,clip=true,trim=3cm 8cm 2cm 8cm ]{fig/Gamma4}\label{fig:Gamma4}}
+\hfill
+\subfigure[]{\includegraphics[width=8cm,clip=true,trim=3cm 8cm 2cm 8cm ]{fig/Dist4}\label{fig:Dist4}}
+\caption{blabla}
+\label{fig:motionEarth}
+\end{figure}
+\\
+\\
+We find the total current in the high temperature regime as we did for the uniform field in section \ref{sec:ConstField}. As $\gamma$ \eqref{gamma2} is independent of $y_0$, equation \eqref{TotalCurrentHighT} yields
+\begin{equation}
+I = \frac{I_{c,0}}{2}\int_{-\pi/2}^{\pi/2}d\theta_k\cos\theta_k\sin(\Delta \varphi - \gamma).
+\end{equation}
+Using that $\gamma(\theta_k) = -\gamma(-\theta_k)$ this can be rewritten to
+\begin{equation}
+I = I_{c,0}\sin\Delta\varphi\int_0^{\pi/2}d\theta_k\cos\theta_k\cos\gamma.
+\end{equation}
+After inserting for $\gamma$ and integrating over $\theta_k$ we obtain the total current,
+\begin{equation}
+I = I_{c,0}\sin\Delta\varphi\frac{L^2}{l_m^2}\left|f(\lambda)\right|K_1\left(\frac{L^2}{l_m^2}\left|f(\lambda)\right|\right),
+\end{equation}
+where $K_1(z)$ is the modified Bessel function of second kind and we have defined
+\begin{equation}
+f(\lambda) \equiv \left(\frac{\lambda}{\pi L}\right)^2\sin\left(\frac{\pi L}{\lambda}\right)-\frac{\lambda}{\pi L}\cos\left(\frac{\pi L}{\lambda}\right).
+\end{equation}
+Hence, the high temperature critical current is
+\begin{equation}
+    I_c = I_{c,0}\frac{L^2}{l_m^2}\left|f(\lambda)\right|K_1\left(\frac{L^2}{l_m^2}\left|f(\lambda)\right|\right).
+\label{Critical4}
+\end{equation}
+The wavelengths $\lambda$ that make $f(\lambda)$ go to zero, will give $I_c = I_{c,0}$, regardless of the magnetic field strength. In figure \ref{fig:Critical4} the critical current obtained from numerical computation is shown for different wavelengths, $\lambda$, and varying magnetic field strength, $B$. This result is in correspondance with the analytical expression \eqref{Critical4}. We notice that we no longer have the familiar Fraunhofer pattern and understand this as being a consequence of the absence of the current vortices. Just like we found for the symmetric field there exists wavelengths, e.g. $\lambda \approx 0.7 L$, which make the critical current $I_c$ remain constant when the magnetic field strength increases.
 
 \subsection{Sinusoidal field varying along the interfaces}
 \label{sec:alongInterface}
@@ -312,63 +303,48 @@ with the gauge
 \begin{equation}
     \fet{A} = B\frac{\lambda}{2\pi}\cos\left(\frac{2\pi}{\lambda}y+\varphi\right)\left[\Theta(x+L/2) - \Theta(x-L/2) \right]\hat{x}.
 \end{equation}
-This time we find $\gamma$ to be
+Now the phase shift becomes
 \begin{equation}
 \begin{split}
     \gamma &= 
     %\frac{2}{l_m^2}\frac{\lambda}{2\pi}\int \cos\left(\frac{2\pi}{\lambda}y(x) + \varphi \right) dx =
-    \frac{\lambda}{\pi l_m^2 \tan\theta_k}\int_{y_L}^{y_R} \cos\left(\frac{2\pi}{\lambda}y + \varphi \right) dy
-    \\
-    &= -\frac{\lambda^2}{l_m^2\pi^2\tan\theta_k}\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right] + \varphi\right),
+    %\frac{\lambda}{\pi l_m^2 \tan\theta_k}\int_{y_L}^{y_R} \cos\left(\frac{2\pi}{\lambda}y + \varphi \right) dy
+    %\\&= 
+    -\frac{\lambda^2}{l_m^2\pi^2\tan\theta_k}\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right] + \varphi\right).
 \end{split}
 \end{equation}
-where $y_L$ is the $y$-component of the starting position of the trajectory \eqref{trajectory} in the left superconductor, while $y_R$ is the $y$-component of the end position in the right superconductor. As we did in the previous section we will also here look at the anti-symmetric and symmetric fields taking $\varphi$ to $0$ and $\pi/2$, respectively, starting with the anti-symmetric field.
+%where $y_L$ is the $y$-component of the starting position of the trajectory \eqref{trajectory} in the left superconductor, while $y_R$ is the $y$-component of the end position in the right superconductor. 
+As we did in the previous section we will also here look at the symmetric- and anti-symmetric fields taking $\varphi$ to $\pi/2$ and $0$, respectively.
 
-\subsubsection{Anti-symmetric field}
-In the anti-symmetric field, i.e. when $\varphi = 0$, the phase shift is
+\subsubsection{Symmetric field}
+In the  symmetric field, i.e. when $\varphi =\pi/2$ the phase shift is
 \begin{equation}
 \begin{split}
-    \gamma &= -\frac{L^2}{l_m^2}\frac{\lambda}{\pi L }\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)\\
-    &=-\gamma_{\mathrm{uni}}\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]}\\
+    \gamma &= -\frac{\lambda^2}{l_m^2\pi^2\tan\theta_k}\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)\sin\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right). 
+    \\
+    &= -\gamma_{\mathrm{uni}}\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\sin\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]},
 \end{split}
+\label{Gamma3}
 \end{equation}
-where $\gamma_{\mathrm{uni}}$ is the phase shift in the uniform field. In order to compare this expression with the uniform field we look at the current density at $\theta_k = 0$ and $x_0 = 0$ were the phase shift becomes
+where $\gamma_{\mathrm{uni}}$ is the phase shift in the uniform field. In the limit with $\lambda \gg L$ and $\lambda \gg y_0$ the phase shift will approach the phase shift in the uniform field, $\gamma \rightarrow -\gamma_{\mathrm{uni}}$, as we would expect as a symmetric magnetic field will be approximately constant when the wavelength becomes very large. In the limit with $\lambda \ll L$ the second factor in \eqref{Gamma3} will go to zero and the current density will be as if there was no magnetic field present. 
+\\
+\\
+In order to compare this field with the uniform field we consider the current density at $x_0=0$ and $\theta_k = 0$ in which the phase shift is
 \begin{equation}
-    \gamma(x_0=0, y_0, \theta_k = 0) = -\gamma_{\mathrm{uni}} \frac{\cos\left(\frac{2\pi}{\lambda}y_0\right)}{\frac{2\pi}{\lambda}y_0}.
+    \gamma(x_0=0,y_0,\theta_k=0) = -\gamma_{\mathrm{uni}}\frac{\sin\left(\frac{2\pi}{\lambda}y_0\right)}{\frac{2\pi}{\lambda}y_0}.
+    %= -\gamma_{\mathrm{uni}}(y_0-\lambda/4)\frac{\cos\left(\frac{2\pi}{\lambda}\left(y_0-\frac{\lambda}{4}\right)\right)}{\frac{2\pi}{\lambda}\left(y_0-\frac{\lambda}{4}\right)}
 \end{equation}
-The phase shift has now an additional factor which will envelope the vortex pattern from the uniform field with a periodicity $\lambda$. In equation \eqref{dIwithBHighT} we can distinguish between to specific cases, namely with the phase difference, $\Delta \varphi = n\pi$ and $\Delta \varphi = (2n+1)\pi/2$, in which the the current density along the $y$-axis will be an even or odd function of $\gamma$, respectively. When the current density is an even function of $\gamma$ we expect the vortex rows to be separated by a row lattice constant $a_{\mathrm{rows,even}} = \lambda/2$. When the current density is an odd function of $\gamma$ we expect the vortex-antivortex rows for the uniform field to be repeated as rows and anti-rows of vortices with row lattice constant $a_{\mathrm{row}} = \lambda$. Moreover, as the factor $\cos(2\pi y_0/\lambda)/(2\pi y_0/\lambda)$ is an odd function of $y_0$ we expect the vortex rows to be anti-symmetric about the $x$-axis. That is the pattern is such that if a row is placed at $y_0$ then there is an anti-row placed at $-y_0$. 
+Compared to the phase shift in the uniform field we have now an additional factor which will envelope the vortex rows we saw in the uniform field with a periodicity $\lambda$. The current density pattern will in this case depend on the phase difference $\Delta \varphi$, unlike what we have seen in the fields so far considered. We will consider two specific cases, namely $\Delta \varphi = n\pi$ and $\Delta \varphi = (n+1/2)\pi$, in which the the current density along the $y$-axis will be an even or odd function of $\gamma$, respectively, according to equation \eqref{dIwithBHighT}. When the current density is an odd function of $\gamma$ we expect the vortex-antivortex rows for the uniform field to be repeated as rows and anti-rows of vortices with row lattice constant $a_{\mathrm{row,odd}} = \lambda$. When the current density is an even function of $\gamma$ we expect the vortex rows to be separated by a row lattice constant $a_{\mathrm{row,even}} = \lambda/2$. Moreover, as the factor $\sin(2\pi y_0/\lambda)/(2\pi y_0/\lambda)$ is an even function of $y_0$ we expect the vortex rows to be symmetric about the $x$-axis, even when the current density is an odd function of $\gamma$. That is the pattern is such that if a row is placed at $y_0$ then there is a corresponding row placed at $-y_0$.
 \\
 \\
-The current density is found numerically from equation \eqref{dIwithB} and \eqref{CurrentDensity} and the result is shown in figure \ref{fig:dist2_0} for five different wavelengths. We observe what was predicted, namely a repeated pattern of vortex- anti-vortex-rows with distance $\lambda$ between two rows.
+The current density is found numerically from equation \eqref{dIwithB} and \eqref{CurrentDensity} and the result is shown in figure \ref{fig:Dist3} for different wavelengths. We observe what was predicted, namely a repeated pattern of vortex-anti-vortex-rows. With $\Delta \varphi = 0$ we observe rows and anti-rows separated by $\lambda/2$ such that each row is separated by $\lambda$, i.e. row lattice constant $a_{\mathrm{row,odd}}=\lambda$. With $\Delta \varphi = \pi/2$ there are no anti-rows as the current density is an even function of $\gamma$ and each row is separated by $\lambda/2$, i.e. row lattice constant $a_{\mathrm{row,even}}=\lambda/2$. Moreover, the current density approaches a uniform distribution as $\lambda \rightarrow 0$ with current as given in equation \eqref{WithoutField}, as we predicted analytically. When $\lambda >> L$ the uniform field pattern reappears, as predicted. 
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=17cm,clip=true,trim = 0cm 1.5cm 0cm 1cm]{fig/dist2_0}
+\includegraphics[width=17cm,clip=true,trim = 0cm 3.5cm 0cm 3cm]{fig/Dist3}
 \caption{blabla.. Planen her å gjøre figurene litt finere sånn som for konstant felt. Og vise to rader med bilder, en med $\Delta \varphi = 0$ og en med $\Delta \varphi = \pi/2$}
-\label{fig:dist2_0}
+\label{fig:Dist3}
 \end{figure}
-\\
-\begin{comment}
-We find the total current from equation \eqref{dIwithB} and \eqref{TotalCurrent}, and using that $\gamma(x_0,y_0,\theta_k) = \gamma(x_0,-y_0,-\theta_k)$. In the high temperature regime this gives
-\begin{equation}
-I = I_{c,0}\left(J_1\sin\Delta\varphi  - J_2\cos\Delta\varphi\right)
-\end{equation}
-where $J_1$ and $J_2$ are defined as
-\begin{equation}
-\begin{split}
-    J_1 &\equiv \frac{1}{W}\int_{-W/2}^{W/2}dy_0\int_0^{\pi/2}d\theta_k\cos\theta_k\cos\gamma \\
-    J_2 &\equiv \frac{1}{W}\int_{-W/2}^{W/2}dy_0\int_0^{\pi/2}d\theta_k\cos\theta_k\sin\gamma.
-\end{split}
-\end{equation}
-The second integral, $J_2$, is zero (BUT WHY?), and hence the total and critical current is on the same form as for the other cases. The critical current is given as
-\begin{equation}
-    I_c = \frac{I_{c,0}}{W}\int_{-W/2}^{W/2}dy_0\int_0^{\pi/2}d\theta_k\cos\theta_k\cos\gamma. \\
-\end{equation}
-The critical current is found at $\Delta\varphi = -\arctan(J_1 / J_2)$:
-\begin{equation}
-    I_c = I_{c,0}\sqrt{J_1^2+J_2^2}.
-\end{equation}
-\end{comment}
-As the expression for $\gamma$ is quite complicated we can not calculate the total current analytically, even in the high temperature regime. However, the critical current is found numerically and the result is shown in figure \ref{fig:Critical2}. SHOULD COMMENT ON THIS. BUT WHAT TO SAY?
+As the expression for $\gamma$ is quite complicated we can not calculate the total current analytically, even in the high temperature regime. However, the critical current is found numerically and the result is shown in figure \ref{fig:Critical2}. For large wavelengths, $\lambda$, the critical current approaches the Fraunhofer pattern as we would expect from the results found in the current density. Moreover, the critical current smoothens out and approaches the constant critcal current $I_{c,0}$ when the wavelength goes to zero.
 \begin{figure}[hhh]
 \centering
 \includegraphics[width=8cm,clip=true,trim=3cm 8cm 4cm 9cm]{fig/Critical2}
@@ -377,47 +353,27 @@ As the expression for $\gamma$ is quite complicated we can not calculate the tot
 \end{figure}
 
 
-\subsubsection{Symmetric field}
-We now let $\varphi =\pi/2$ such that the magnetic field is symmetric about the $x$-axis. Equation \eqref{gamma3} will in this field give the phase shift
+\subsubsection{Anti-symmetric field}
+We now let $\varphi = 0$ such that the magnetic field is anti-symmetric about the $x$-axis with the phase shift
 \begin{equation}
 \begin{split}
-    \gamma &= -\frac{\lambda^2}{l_m^2\pi^2\tan\theta_k}\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)\sin\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right). 
-    \\
-    &= -\gamma_{\mathrm{uni}}\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\sin\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]}.
+    \gamma &= -\frac{L^2}{l_m^2}\frac{\lambda}{\pi L }\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\sin\left(\frac{2\pi}{\lambda}\left[\left(y_0+\frac{\lambda}{4}\right)-x_0\tan\theta_k\right]\right)\\
+    %&=-\frac{L^2}{l_m^2}\frac{\lambda}{\pi L }\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)\\
+    %&=-\gamma_{\mathrm{uni}}(x_0,y_0,\theta_k)\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\cos\left(\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[y_0-x_0\tan\theta_k\right]}\\
+    %&=-\gamma_{\mathrm{uni}}\left(x_0,y_0+\frac{\lambda}{4},\theta_k,\right)\frac{\sin\left(\frac{\pi L}{\lambda}\tan\theta_k\right)}{\frac{\pi L}{\lambda}\tan\theta_k}\frac{\sin\left(\frac{2\pi}{\lambda}\left[\left(y_0+\frac{\lambda}{4}\right)-x_0\tan\theta_k\right]\right)}{\frac{2\pi}{\lambda}\left[\left(y_0+\frac{\lambda}{4}\right)-x_0\tan\theta_k\right]}\\
 \end{split}
 \end{equation}
-At $x_0=0$ and $\theta_k = 0$ we get
+This is equal to the symmetric field \eqref{Gamma3}, only shifted by $\lambda/4$ along the $y$-axis. Hence we expect a similar, but shifted pattern as for the symmetric case. At $\theta_k = 0$ and $x_0 = 0$ the phase shift is 
 \begin{equation}
-    \gamma(x_0=0,y_0,\theta_k=0) = -\gamma_{\mathrm{uni}}(y_0)\frac{\sin\left(\frac{2\pi}{\lambda}y_0\right)}{\frac{2\pi}{\lambda}y_0} = -\gamma_{\mathrm{uni}}(y_0-\lambda/4)\frac{\cos\left(\frac{2\pi}{\lambda}\left(y_0-\frac{\lambda}{4}\right)\right)}{\frac{2\pi}{\lambda}\left(y_0-\frac{\lambda}{4}\right)}
+    \gamma(x_0=0, y_0, \theta_k = 0) = -\gamma_{\mathrm{uni}} \frac{\cos\left(\frac{2\pi}{\lambda}y_0\right)}{\frac{2\pi}{\lambda}y_0}.
 \end{equation}
-This is on the same form as for the anti-symmetric field, but with a shift by $\lambda/4$ of the position of each vortex row. Unlike the anti-symmetric field, the factor $\sin(2\pi y_0/\lambda)/(2\pi y_0 /\lambda)$, which is multiplied with $\gamma_{\mathrm{uni}}$, is an even function of $y_0$, so that we expect the rows and anti-rows to be structured symmetrically about the $x$-axis. This is confirmed numerically and the result is shown in figure \ref{fig:dist2_pi-2}. Since the symmetric and anti-symmetric field along the interface only differ by a shift of the center of the vortex rows along the $y$-axis, we expect the total current to be equal in the two cases, when $W \gg L$. This was also confirmed numerically, and the critical current will be as shown in figure \ref{fig:Critical2}.
+The factor $\cos(2\pi y_0/\lambda)/(2\pi y_0 /\lambda)$ is an odd function of $y_0$ and unlike the symmetric case we now expect an anti-symmetric pattern about the $x$-axis if the current is an odd function of $\gamma$, i.e. when $\Delta \varphi = n\pi$. That is if there is a row placed at $y_0$ there will be a anti-row placed at $-y_0$. This is confirmed numerically and the result is shown in figure \eqref{fig:Dist2}.
 \begin{figure}[hhh]
 \centering
-\includegraphics[width=17cm,clip=true,trim = 1.4cm 1.5cm 0.6cm 1cm]{fig/dist2_pi-2}
-%\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
-%\hfill
-%\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
+\includegraphics[width=17cm,clip=true,trim = 0cm 5cm 0cm 2cm]{fig/Dist2}
 \caption{blabla.. Planen her å gjøre figurene litt finere sånn som for konstant felt. Og vise to rader med bilder, en med $\Delta \varphi = 0$ og en med $\Delta \varphi = \pi/2$}
-\label{fig:dist2_pi-2}
+\label{fig:Dist2}
 \end{figure}
-\begin{comment}
-From equation \eqref{dIwithB} and \eqref{CurrentDensity}, and using that $\gamma(x_0,y_0,\theta_k) = -\gamma(x_0,-y_0,-\theta_k)$ one find the total current to be given as
-\begin{equation}
-    I = \frac{I_{c,0}}{W}\sin\Delta\varphi\int_{-W/2}^{W/2}dy_0\int_0^{\pi/2}d\theta\cos\theta_k\cos\gamma
-\end{equation}
-and hence critical current
-\begin{equation}
-    I_c = \frac{I_{c,0}}{W}\int_{-W/2}^{W/2}dy_0\int_0^{\pi/2}d\theta\cos\theta_k\cos\gamma.
-\end{equation}
-Again we can only solve the integral numerically and the result of the critical current is shown in figure \ref{fig:critical_dist2_pi-2}.
-
-\begin{figure}[hhh]
-\centering
-\includegraphics[width=8cm,clip=true,trim=3cm 8cm 4cm 9cm]{fig/critical_Dist2_phi_pi-2}
-%\subfigure[]{\includegraphics[width=3.9cm]{Dustin}\label{fig:Dustin}}
-%\hfill
-%\subfigure[]{\includegraphics[width=3.45cm]{Martin}\label{fig:Martin}}
-\caption{blabla}
-\label{fig:critical_dist2_pi-2}
-\end{figure}
-\end{comment}
+\\
+\\
+Since the current density of the symmetric and anti-symmetric field along the interface only differ by a shift of the center of the vortex rows along the $y$-axis, we expect the total current to be equal in the two cases, when $W \gg L$. This has also been confirmed numerically, and the critical current will be as shown in figure \ref{fig:Critical2}.
