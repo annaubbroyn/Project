@@ -59,6 +59,7 @@ set(gca,'XTick',[-1 -0.5 0 0.5 1],'fontsize',20)
 %Current density for Dist3 phi=0
 figure(4)
 hold on
+l=0.3;
 %nx = 10000;
 nx = 10;
 ntheta = 1000;
